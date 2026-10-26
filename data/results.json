@@ -1,0 +1,3976 @@
+{
+ "coverage": {
+  "entries_parsed": 236326,
+  "year_first": 1744,
+  "year_last": 1945,
+  "pages": 1251,
+  "pages_redirect": 49,
+  "with_position_anywhere": 154132,
+  "in_europe_box": 107917,
+  "dropped_inland_or_lake": 661,
+  "dropped_far_offshore": 706,
+  "europe": 106550,
+  "share_of_parsed_in_europe": 0.4509,
+  "method_named_place": 99600,
+  "method_list_coordinates": 6662,
+  "method_wikidata": 288,
+  "coord_slips_fixed": 14,
+  "no_position": 82194,
+  "sea_named_but_no_position": 17937,
+  "unknown_flag_europe": 1545,
+  "naval_europe": 6300,
+  "peak_year": 1917,
+  "peak_year_n": 2498,
+  "mean_per_year_1816_1913": 782.5,
+  "mean_per_year_1919_1938": 161.2
+ },
+ "checks": {
+  "hand": {
+   "n": 100,
+   "ok": 92,
+   "near": 5,
+   "wrong": 3,
+   "wrong_now_dropped": 2,
+   "kept_now": 98,
+   "accuracy_kept_ok_or_near": 0.99,
+   "accuracy_kept_ok": 0.939
+  },
+  "named_sea_n": 23191,
+  "named_sea_agree": 0.9246,
+  "wikidata_pairs": 270,
+  "wikidata_median_km": 32.4,
+  "wikidata_within_50km": 0.567,
+  "coord_pairs": 3154,
+  "coord_median_km": 53.9,
+  "coord_within_50km": 0.481,
+  "coord_pairs_pre1914": 48,
+  "coord_median_km_pre1914": 204.4,
+  "wd_registry_uk_items": 29348,
+  "wd_registry_cells": 117,
+  "wd_registry_spearman": 0.361
+ },
+ "overall": {
+  "n": 106550,
+  "shares": {
+   "British": 0.6817,
+   "German": 0.0715,
+   "French": 0.0502,
+   "Norwegian": 0.0302,
+   "Dutch": 0.0238,
+   "Italian": 0.0198,
+   "Swedish": 0.0188,
+   "Russian": 0.0172,
+   "Other": 0.0724,
+   "Unknown": 0.0145
+  },
+  "groups": {
+   "British": 72639,
+   "German": 7616,
+   "French": 5345,
+   "Norwegian": 3218,
+   "Dutch": 2532,
+   "Italian": 2106,
+   "Swedish": 1999,
+   "Russian": 1833,
+   "American": 1577,
+   "Unknown": 1545,
+   "Danish": 1533,
+   "Spanish": 952,
+   "Greek": 826,
+   "Belgian": 561,
+   "Other": 549,
+   "Portuguese": 523,
+   "Irish": 360,
+   "Austrian": 341,
+   "Ottoman": 179,
+   "Finnish": 139,
+   "Baltic states": 74,
+   "Romanian": 49,
+   "Yugoslav": 28,
+   "Polish": 26
+  },
+  "british_share": 0.6817,
+  "n_groups_seen": 24,
+  "n_flag_texts": 232,
+  "british_share_off_other_coasts": 0.3963,
+  "n_off_other_coasts": 37495,
+  "share_off_britain_ireland": 0.6481
+ },
+ "eras": [
+  {
+   "era": "1744 to 1792",
+   "label": "Age of sail",
+   "n": 4404,
+   "per_year": 89.9,
+   "shares": {
+    "British": 0.6982,
+    "German": 0.032,
+    "French": 0.0475,
+    "Norwegian": 0.0,
+    "Dutch": 0.0429,
+    "Italian": 0.0054,
+    "Swedish": 0.025,
+    "Russian": 0.0204,
+    "Other": 0.1203,
+    "Unknown": 0.0082
+   },
+   "naval_share": 0.0316,
+   "effective_flags": 1.97,
+   "top_sea": "North Sea",
+   "seas": {
+    "North Sea": 1353,
+    "Irish Sea and approaches": 881,
+    "English Channel": 877,
+    "Atlantic": 525,
+    "Baltic": 310,
+    "Mediterranean": 169,
+    "Bay of Biscay": 148,
+    "Kattegat and Skagerrak": 100,
+    "Black Sea": 28,
+    "Norwegian Sea and Arctic": 13
+   }
+  },
+  {
+   "era": "1793 to 1815",
+   "label": "French wars",
+   "n": 8142,
+   "per_year": 354.0,
+   "shares": {
+    "British": 0.7741,
+    "German": 0.0407,
+    "French": 0.0233,
+    "Norwegian": 0.0018,
+    "Dutch": 0.0197,
+    "Italian": 0.0009,
+    "Swedish": 0.022,
+    "Russian": 0.0179,
+    "Other": 0.077,
+    "Unknown": 0.0226
+   },
+   "naval_share": 0.0526,
+   "effective_flags": 1.58,
+   "top_sea": "North Sea",
+   "seas": {
+    "North Sea": 3112,
+    "Irish Sea and approaches": 1631,
+    "English Channel": 1337,
+    "Atlantic": 815,
+    "Baltic": 587,
+    "Mediterranean": 233,
+    "Bay of Biscay": 185,
+    "Kattegat and Skagerrak": 184,
+    "Norwegian Sea and Arctic": 39,
+    "Black Sea": 19
+   }
+  },
+  {
+   "era": "1816 to 1859",
+   "label": "Peace and sail",
+   "n": 38288,
+   "per_year": 870.2,
+   "shares": {
+    "British": 0.7668,
+    "German": 0.0519,
+    "French": 0.0509,
+    "Norwegian": 0.0134,
+    "Dutch": 0.0282,
+    "Italian": 0.0041,
+    "Swedish": 0.0155,
+    "Russian": 0.0128,
+    "Other": 0.0473,
+    "Unknown": 0.0091
+   },
+   "naval_share": 0.012,
+   "effective_flags": 1.65,
+   "top_sea": "North Sea",
+   "seas": {
+    "North Sea": 15681,
+    "Irish Sea and approaches": 9082,
+    "English Channel": 4060,
+    "Atlantic": 2923,
+    "Baltic": 2630,
+    "Mediterranean": 1819,
+    "Kattegat and Skagerrak": 1007,
+    "Bay of Biscay": 632,
+    "Black Sea": 324,
+    "Norwegian Sea and Arctic": 130
+   }
+  },
+  {
+   "era": "1860 to 1913",
+   "label": "Steam age",
+   "n": 38398,
+   "per_year": 711.1,
+   "shares": {
+    "British": 0.7106,
+    "German": 0.0491,
+    "French": 0.0497,
+    "Norwegian": 0.0395,
+    "Dutch": 0.0198,
+    "Italian": 0.0162,
+    "Swedish": 0.0173,
+    "Russian": 0.0135,
+    "Other": 0.0596,
+    "Unknown": 0.0248
+   },
+   "naval_share": 0.0088,
+   "effective_flags": 1.85,
+   "top_sea": "North Sea",
+   "seas": {
+    "North Sea": 15031,
+    "Irish Sea and approaches": 9300,
+    "English Channel": 4444,
+    "Baltic": 2572,
+    "Atlantic": 2483,
+    "Mediterranean": 1950,
+    "Kattegat and Skagerrak": 1127,
+    "Bay of Biscay": 793,
+    "Black Sea": 564,
+    "Norwegian Sea and Arctic": 134
+   }
+  },
+  {
+   "era": "1914 to 1918",
+   "label": "First World War",
+   "n": 5887,
+   "per_year": 1177.4,
+   "shares": {
+    "British": 0.4851,
+    "German": 0.0437,
+    "French": 0.1043,
+    "Norwegian": 0.1036,
+    "Dutch": 0.018,
+    "Italian": 0.0713,
+    "Swedish": 0.0248,
+    "Russian": 0.0267,
+    "Other": 0.1221,
+    "Unknown": 0.0003
+   },
+   "naval_share": 0.1614,
+   "effective_flags": 3.73,
+   "top_sea": "North Sea",
+   "seas": {
+    "North Sea": 1363,
+    "Mediterranean": 1309,
+    "English Channel": 1103,
+    "Atlantic": 965,
+    "Irish Sea and approaches": 548,
+    "Bay of Biscay": 300,
+    "Baltic": 122,
+    "Norwegian Sea and Arctic": 103,
+    "Black Sea": 48,
+    "Kattegat and Skagerrak": 26
+   }
+  },
+  {
+   "era": "1919 to 1938",
+   "label": "Between the wars",
+   "n": 3224,
+   "per_year": 161.2,
+   "shares": {
+    "British": 0.4119,
+    "German": 0.0872,
+    "French": 0.0785,
+    "Norwegian": 0.0499,
+    "Dutch": 0.022,
+    "Italian": 0.0481,
+    "Swedish": 0.0416,
+    "Russian": 0.0136,
+    "Other": 0.2422,
+    "Unknown": 0.005
+   },
+   "naval_share": 0.0645,
+   "effective_flags": 4.98,
+   "top_sea": "North Sea",
+   "seas": {
+    "North Sea": 816,
+    "Irish Sea and approaches": 477,
+    "Mediterranean": 471,
+    "English Channel": 379,
+    "Baltic": 341,
+    "Atlantic": 338,
+    "Bay of Biscay": 138,
+    "Black Sea": 111,
+    "Kattegat and Skagerrak": 86,
+    "Norwegian Sea and Arctic": 67
+   }
+  },
+  {
+   "era": "1939 to 1945",
+   "label": "Second World War",
+   "n": 8207,
+   "per_year": 1172.4,
+   "shares": {
+    "British": 0.2962,
+    "German": 0.3328,
+    "French": 0.0272,
+    "Norwegian": 0.0492,
+    "Dutch": 0.0202,
+    "Italian": 0.0876,
+    "Swedish": 0.0213,
+    "Russian": 0.0475,
+    "Other": 0.1171,
+    "Unknown": 0.0009
+   },
+   "naval_share": 0.4603,
+   "effective_flags": 4.66,
+   "top_sea": "Mediterranean",
+   "seas": {
+    "Mediterranean": 2067,
+    "North Sea": 1705,
+    "Atlantic": 1177,
+    "Baltic": 871,
+    "English Channel": 642,
+    "Norwegian Sea and Arctic": 552,
+    "Irish Sea and approaches": 410,
+    "Black Sea": 337,
+    "Bay of Biscay": 270,
+    "Kattegat and Skagerrak": 176
+   }
+  }
+ ],
+ "seas": [
+  {
+   "sea": "North Sea",
+   "n": 39061,
+   "shares": {
+    "British": 0.7408,
+    "German": 0.0727,
+    "French": 0.0279,
+    "Norwegian": 0.0335,
+    "Dutch": 0.0384,
+    "Italian": 0.0045,
+    "Swedish": 0.0177,
+    "Russian": 0.0067,
+    "Other": 0.0436,
+    "Unknown": 0.0142
+   },
+   "groups": {
+    "British": 28937,
+    "German": 2841,
+    "Dutch": 1499,
+    "Norwegian": 1308,
+    "French": 1088,
+    "Swedish": 693,
+    "Danish": 595,
+    "Unknown": 553,
+    "American": 401,
+    "Belgian": 285,
+    "Russian": 261,
+    "Italian": 177,
+    "Spanish": 124,
+    "Other": 78,
+    "Portuguese": 59,
+    "Austrian": 47,
+    "Greek": 40,
+    "Irish": 27,
+    "Finnish": 25,
+    "Baltic states": 10,
+    "Ottoman": 7,
+    "Polish": 5,
+    "Yugoslav": 1
+   },
+   "top": "British",
+   "top_share": 0.7408,
+   "second": "German",
+   "second_share": 0.0727,
+   "british_share": 0.7408,
+   "effective_flags": 1.74,
+   "top_places": [
+    [
+     "Essex",
+     1602
+    ],
+    [
+     "River Thames",
+     1136
+    ],
+    [
+     "Norfolk",
+     1118
+    ],
+    [
+     "Goodwin Sands",
+     1115
+    ],
+    [
+     "Suffolk",
+     1065
+    ]
+   ],
+   "lat": 53.14,
+   "lon": 0.7,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 1353,
+     "shares": {
+      "British": 0.748,
+      "German": 0.048,
+      "French": 0.0259,
+      "Norwegian": 0.0,
+      "Dutch": 0.0636,
+      "Italian": 0.0037,
+      "Swedish": 0.0384,
+      "Russian": 0.0059,
+      "Other": 0.0591,
+      "Unknown": 0.0074
+     }
+    },
+    "1793 to 1815": {
+     "n": 3112,
+     "shares": {
+      "British": 0.7712,
+      "German": 0.0588,
+      "French": 0.0132,
+      "Norwegian": 0.0016,
+      "Dutch": 0.0366,
+      "Italian": 0.0006,
+      "Swedish": 0.0215,
+      "Russian": 0.0106,
+      "Other": 0.0591,
+      "Unknown": 0.0267
+     }
+    },
+    "1816 to 1859": {
+     "n": 15681,
+     "shares": {
+      "British": 0.7888,
+      "German": 0.063,
+      "French": 0.0302,
+      "Norwegian": 0.0151,
+      "Dutch": 0.0429,
+      "Italian": 0.0018,
+      "Swedish": 0.0124,
+      "Russian": 0.0057,
+      "Other": 0.0322,
+      "Unknown": 0.008
+     }
+    },
+    "1860 to 1913": {
+     "n": 15031,
+     "shares": {
+      "British": 0.7421,
+      "German": 0.0581,
+      "French": 0.0303,
+      "Norwegian": 0.0472,
+      "Dutch": 0.0296,
+      "Italian": 0.008,
+      "Swedish": 0.0148,
+      "Russian": 0.0079,
+      "Other": 0.0399,
+      "Unknown": 0.022
+     }
+    },
+    "1914 to 1918": {
+     "n": 1363,
+     "shares": {
+      "British": 0.5635,
+      "German": 0.0939,
+      "French": 0.0154,
+      "Norwegian": 0.1401,
+      "Dutch": 0.0499,
+      "Italian": 0.0022,
+      "Swedish": 0.0514,
+      "Russian": 0.0088,
+      "Other": 0.0748,
+      "Unknown": 0.0
+     }
+    },
+    "1919 to 1938": {
+     "n": 816,
+     "shares": {
+      "British": 0.5588,
+      "German": 0.1201,
+      "French": 0.0331,
+      "Norwegian": 0.065,
+      "Dutch": 0.0429,
+      "Italian": 0.011,
+      "Swedish": 0.0355,
+      "Russian": 0.0,
+      "Other": 0.1299,
+      "Unknown": 0.0037
+     }
+    },
+    "1939 to 1945": {
+     "n": 1705,
+     "shares": {
+      "British": 0.4557,
+      "German": 0.2962,
+      "French": 0.0211,
+      "Norwegian": 0.0663,
+      "Dutch": 0.0457,
+      "Italian": 0.0059,
+      "Swedish": 0.034,
+      "Russian": 0.0,
+      "Other": 0.0751,
+      "Unknown": 0.0
+     }
+    }
+   }
+  },
+  {
+   "sea": "English Channel",
+   "n": 12842,
+   "shares": {
+    "British": 0.6968,
+    "German": 0.0431,
+    "French": 0.1171,
+    "Norwegian": 0.025,
+    "Dutch": 0.0238,
+    "Italian": 0.0063,
+    "Swedish": 0.0095,
+    "Russian": 0.0044,
+    "Other": 0.061,
+    "Unknown": 0.013
+   },
+   "groups": {
+    "British": 8948,
+    "French": 1504,
+    "German": 554,
+    "Norwegian": 321,
+    "Dutch": 306,
+    "American": 249,
+    "Unknown": 167,
+    "Swedish": 122,
+    "Danish": 113,
+    "Spanish": 99,
+    "Italian": 81,
+    "Belgian": 79,
+    "Other": 67,
+    "Portuguese": 65,
+    "Russian": 56,
+    "Greek": 44,
+    "Irish": 28,
+    "Austrian": 24,
+    "Ottoman": 5,
+    "Baltic states": 4,
+    "Polish": 3,
+    "Finnish": 2,
+    "Romanian": 1
+   },
+   "top": "British",
+   "top_share": 0.6968,
+   "second": "French",
+   "second_share": 0.1171,
+   "british_share": 0.6968,
+   "effective_flags": 1.94,
+   "top_places": [
+    [
+     "Dungeness",
+     509
+    ],
+    [
+     "Isle of Wight",
+     437
+    ],
+    [
+     "Dover",
+     377
+    ],
+    [
+     "Plymouth",
+     348
+    ],
+    [
+     "Le Havre",
+     326
+    ]
+   ],
+   "lat": 50.55,
+   "lon": -1.45,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 877,
+     "shares": {
+      "British": 0.7081,
+      "German": 0.0285,
+      "French": 0.0889,
+      "Norwegian": 0.0,
+      "Dutch": 0.0684,
+      "Italian": 0.0057,
+      "Swedish": 0.0148,
+      "Russian": 0.0011,
+      "Other": 0.081,
+      "Unknown": 0.0034
+     }
+    },
+    "1793 to 1815": {
+     "n": 1337,
+     "shares": {
+      "British": 0.7943,
+      "German": 0.0359,
+      "French": 0.0434,
+      "Norwegian": 0.003,
+      "Dutch": 0.0165,
+      "Italian": 0.0007,
+      "Swedish": 0.0142,
+      "Russian": 0.0015,
+      "Other": 0.0703,
+      "Unknown": 0.0202
+     }
+    },
+    "1816 to 1859": {
+     "n": 4060,
+     "shares": {
+      "British": 0.7382,
+      "German": 0.0241,
+      "French": 0.1318,
+      "Norwegian": 0.0121,
+      "Dutch": 0.0286,
+      "Italian": 0.002,
+      "Swedish": 0.0111,
+      "Russian": 0.0052,
+      "Other": 0.0382,
+      "Unknown": 0.0089
+     }
+    },
+    "1860 to 1913": {
+     "n": 4444,
+     "shares": {
+      "British": 0.7113,
+      "German": 0.0329,
+      "French": 0.115,
+      "Norwegian": 0.0259,
+      "Dutch": 0.0173,
+      "Italian": 0.011,
+      "Swedish": 0.007,
+      "Russian": 0.0045,
+      "Other": 0.0527,
+      "Unknown": 0.0225
+     }
+    },
+    "1914 to 1918": {
+     "n": 1103,
+     "shares": {
+      "British": 0.5422,
+      "German": 0.0326,
+      "French": 0.1813,
+      "Norwegian": 0.117,
+      "Dutch": 0.0109,
+      "Italian": 0.0063,
+      "Swedish": 0.01,
+      "Russian": 0.0091,
+      "Other": 0.0907,
+      "Unknown": 0.0
+     }
+    },
+    "1919 to 1938": {
+     "n": 379,
+     "shares": {
+      "British": 0.5515,
+      "German": 0.029,
+      "French": 0.2164,
+      "Norwegian": 0.0158,
+      "Dutch": 0.0132,
+      "Italian": 0.029,
+      "Swedish": 0.0053,
+      "Russian": 0.0053,
+      "Other": 0.1319,
+      "Unknown": 0.0026
+     }
+    },
+    "1939 to 1945": {
+     "n": 642,
+     "shares": {
+      "British": 0.4673,
+      "German": 0.296,
+      "French": 0.0623,
+      "Norwegian": 0.028,
+      "Dutch": 0.0218,
+      "Italian": 0.0,
+      "Swedish": 0.0016,
+      "Russian": 0.0,
+      "Other": 0.1231,
+      "Unknown": 0.0
+     }
+    }
+   }
+  },
+  {
+   "sea": "Irish Sea and approaches",
+   "n": 22329,
+   "shares": {
+    "British": 0.8871,
+    "German": 0.0104,
+    "French": 0.0208,
+    "Norwegian": 0.0101,
+    "Dutch": 0.0053,
+    "Italian": 0.0048,
+    "Swedish": 0.0034,
+    "Russian": 0.002,
+    "Other": 0.0456,
+    "Unknown": 0.0105
+   },
+   "groups": {
+    "British": 19808,
+    "French": 464,
+    "American": 355,
+    "Unknown": 234,
+    "German": 232,
+    "Norwegian": 226,
+    "Irish": 164,
+    "Dutch": 119,
+    "Other": 113,
+    "Italian": 108,
+    "Spanish": 101,
+    "Swedish": 75,
+    "Portuguese": 71,
+    "Austrian": 59,
+    "Greek": 52,
+    "Danish": 51,
+    "Russian": 44,
+    "Belgian": 39,
+    "Finnish": 6,
+    "Ottoman": 4,
+    "Baltic states": 3,
+    "Yugoslav": 1
+   },
+   "top": "British",
+   "top_share": 0.8871,
+   "second": "French",
+   "second_share": 0.0208,
+   "british_share": 0.8871,
+   "effective_flags": 1.24,
+   "top_places": [
+    [
+     "Liverpool Bay",
+     956
+    ],
+    [
+     "Liverpool",
+     609
+    ],
+    [
+     "Holyhead",
+     445
+    ],
+    [
+     "Milford Haven",
+     318
+    ],
+    [
+     "River Clyde",
+     306
+    ]
+   ],
+   "lat": 53.41,
+   "lon": -4.66,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 881,
+     "shares": {
+      "British": 0.7673,
+      "German": 0.0068,
+      "French": 0.0136,
+      "Norwegian": 0.0,
+      "Dutch": 0.017,
+      "Italian": 0.0011,
+      "Swedish": 0.0136,
+      "Russian": 0.0011,
+      "Other": 0.1691,
+      "Unknown": 0.0102
+     }
+    },
+    "1793 to 1815": {
+     "n": 1631,
+     "shares": {
+      "British": 0.897,
+      "German": 0.0074,
+      "French": 0.0012,
+      "Norwegian": 0.0012,
+      "Dutch": 0.0025,
+      "Italian": 0.0,
+      "Swedish": 0.0055,
+      "Russian": 0.0006,
+      "Other": 0.0754,
+      "Unknown": 0.0092
+     }
+    },
+    "1816 to 1859": {
+     "n": 9082,
+     "shares": {
+      "British": 0.9373,
+      "German": 0.0075,
+      "French": 0.0132,
+      "Norwegian": 0.0018,
+      "Dutch": 0.0051,
+      "Italian": 0.0015,
+      "Swedish": 0.0015,
+      "Russian": 0.0014,
+      "Other": 0.0283,
+      "Unknown": 0.0023
+     }
+    },
+    "1860 to 1913": {
+     "n": 9300,
+     "shares": {
+      "British": 0.8695,
+      "German": 0.0098,
+      "French": 0.0295,
+      "Norwegian": 0.0153,
+      "Dutch": 0.0027,
+      "Italian": 0.0095,
+      "Swedish": 0.0026,
+      "Russian": 0.0026,
+      "Other": 0.0388,
+      "Unknown": 0.0199
+     }
+    },
+    "1914 to 1918": {
+     "n": 548,
+     "shares": {
+      "British": 0.7518,
+      "German": 0.0182,
+      "French": 0.0657,
+      "Norwegian": 0.0602,
+      "Dutch": 0.0055,
+      "Italian": 0.0055,
+      "Swedish": 0.0091,
+      "Russian": 0.0091,
+      "Other": 0.073,
+      "Unknown": 0.0018
+     }
+    },
+    "1919 to 1938": {
+     "n": 477,
+     "shares": {
+      "British": 0.7925,
+      "German": 0.0189,
+      "French": 0.0377,
+      "Norwegian": 0.0189,
+      "Dutch": 0.0126,
+      "Italian": 0.0042,
+      "Swedish": 0.0105,
+      "Russian": 0.0,
+      "Other": 0.1006,
+      "Unknown": 0.0042
+     }
+    },
+    "1939 to 1945": {
+     "n": 410,
+     "shares": {
+      "British": 0.6829,
+      "German": 0.0878,
+      "French": 0.0049,
+      "Norwegian": 0.0585,
+      "Dutch": 0.0488,
+      "Italian": 0.0,
+      "Swedish": 0.0146,
+      "Russian": 0.0,
+      "Other": 0.1,
+      "Unknown": 0.0024
+     }
+    }
+   }
+  },
+  {
+   "sea": "Atlantic",
+   "n": 9226,
+   "shares": {
+    "British": 0.6829,
+    "German": 0.0492,
+    "French": 0.0392,
+    "Norwegian": 0.0373,
+    "Dutch": 0.0133,
+    "Italian": 0.0131,
+    "Swedish": 0.0105,
+    "Russian": 0.0078,
+    "Other": 0.134,
+    "Unknown": 0.0127
+   },
+   "groups": {
+    "British": 6300,
+    "German": 454,
+    "French": 362,
+    "Norwegian": 344,
+    "Portuguese": 252,
+    "Spanish": 230,
+    "American": 206,
+    "Greek": 129,
+    "Dutch": 123,
+    "Italian": 121,
+    "Unknown": 117,
+    "Irish": 109,
+    "Danish": 102,
+    "Swedish": 97,
+    "Other": 93,
+    "Russian": 72,
+    "Austrian": 45,
+    "Belgian": 40,
+    "Finnish": 11,
+    "Baltic states": 10,
+    "Ottoman": 7,
+    "Yugoslav": 2
+   },
+   "top": "British",
+   "top_share": 0.6829,
+   "second": "German",
+   "second_share": 0.0492,
+   "british_share": 0.6829,
+   "effective_flags": 2.05,
+   "top_places": [
+    [
+     "Isles of Scilly",
+     481
+    ],
+    [
+     "Lisbon",
+     222
+    ],
+    [
+     "County Cork",
+     221
+    ],
+    [
+     "Porto",
+     200
+    ],
+    [
+     "Cape Finisterre",
+     193
+    ]
+   ],
+   "lat": 51.83,
+   "lon": -8.61,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 525,
+     "shares": {
+      "British": 0.6533,
+      "German": 0.0152,
+      "French": 0.0362,
+      "Norwegian": 0.0,
+      "Dutch": 0.0152,
+      "Italian": 0.0038,
+      "Swedish": 0.0057,
+      "Russian": 0.0,
+      "Other": 0.261,
+      "Unknown": 0.0095
+     }
+    },
+    "1793 to 1815": {
+     "n": 815,
+     "shares": {
+      "British": 0.7951,
+      "German": 0.016,
+      "French": 0.0147,
+      "Norwegian": 0.0,
+      "Dutch": 0.0074,
+      "Italian": 0.0012,
+      "Swedish": 0.0147,
+      "Russian": 0.0012,
+      "Other": 0.1337,
+      "Unknown": 0.016
+     }
+    },
+    "1816 to 1859": {
+     "n": 2923,
+     "shares": {
+      "British": 0.8094,
+      "German": 0.0151,
+      "French": 0.0359,
+      "Norwegian": 0.0096,
+      "Dutch": 0.0082,
+      "Italian": 0.0044,
+      "Swedish": 0.0072,
+      "Russian": 0.0068,
+      "Other": 0.0954,
+      "Unknown": 0.0079
+     }
+    },
+    "1860 to 1913": {
+     "n": 2483,
+     "shares": {
+      "British": 0.6967,
+      "German": 0.029,
+      "French": 0.0443,
+      "Norwegian": 0.0383,
+      "Dutch": 0.0121,
+      "Italian": 0.0222,
+      "Swedish": 0.0072,
+      "Russian": 0.0085,
+      "Other": 0.112,
+      "Unknown": 0.0298
+     }
+    },
+    "1914 to 1918": {
+     "n": 965,
+     "shares": {
+      "British": 0.5202,
+      "German": 0.0207,
+      "French": 0.0798,
+      "Norwegian": 0.1347,
+      "Dutch": 0.0207,
+      "Italian": 0.029,
+      "Swedish": 0.0093,
+      "Russian": 0.0301,
+      "Other": 0.1554,
+      "Unknown": 0.0
+     }
+    },
+    "1919 to 1938": {
+     "n": 338,
+     "shares": {
+      "British": 0.355,
+      "German": 0.1331,
+      "French": 0.071,
+      "Norwegian": 0.0385,
+      "Dutch": 0.0118,
+      "Italian": 0.0414,
+      "Swedish": 0.0089,
+      "Russian": 0.003,
+      "Other": 0.3314,
+      "Unknown": 0.0059
+     }
+    },
+    "1939 to 1945": {
+     "n": 1177,
+     "shares": {
+      "British": 0.5021,
+      "German": 0.2141,
+      "French": 0.0127,
+      "Norwegian": 0.0663,
+      "Dutch": 0.0263,
+      "Italian": 0.0068,
+      "Swedish": 0.0263,
+      "Russian": 0.0,
+      "Other": 0.1453,
+      "Unknown": 0.0
+     }
+    }
+   }
+  },
+  {
+   "sea": "Bay of Biscay",
+   "n": 2466,
+   "shares": {
+    "British": 0.296,
+    "German": 0.0957,
+    "French": 0.3783,
+    "Norwegian": 0.0385,
+    "Dutch": 0.017,
+    "Italian": 0.0118,
+    "Swedish": 0.0057,
+    "Russian": 0.0028,
+    "Other": 0.1411,
+    "Unknown": 0.013
+   },
+   "groups": {
+    "French": 933,
+    "British": 730,
+    "German": 236,
+    "Spanish": 157,
+    "Norwegian": 95,
+    "American": 61,
+    "Dutch": 42,
+    "Unknown": 32,
+    "Italian": 29,
+    "Belgian": 26,
+    "Greek": 22,
+    "Danish": 21,
+    "Portuguese": 18,
+    "Other": 17,
+    "Irish": 14,
+    "Swedish": 14,
+    "Russian": 7,
+    "Austrian": 7,
+    "Ottoman": 2,
+    "Finnish": 2,
+    "Baltic states": 1
+   },
+   "top": "French",
+   "top_share": 0.3783,
+   "second": "British",
+   "second_share": 0.296,
+   "british_share": 0.296,
+   "effective_flags": 3.94,
+   "top_places": [
+    [
+     "Gironde estuary",
+     154
+    ],
+    [
+     "Brest, France",
+     151
+    ],
+    [
+     "Bilbao",
+     117
+    ],
+    [
+     "Finistère",
+     94
+    ],
+    [
+     "Bordeaux",
+     88
+    ]
+   ],
+   "lat": 46.2,
+   "lon": -2.35,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 148,
+     "shares": {
+      "British": 0.3919,
+      "German": 0.0135,
+      "French": 0.3311,
+      "Norwegian": 0.0,
+      "Dutch": 0.0473,
+      "Italian": 0.0,
+      "Swedish": 0.0068,
+      "Russian": 0.0,
+      "Other": 0.2095,
+      "Unknown": 0.0
+     }
+    },
+    "1793 to 1815": {
+     "n": 185,
+     "shares": {
+      "British": 0.5405,
+      "German": 0.0162,
+      "French": 0.2595,
+      "Norwegian": 0.0,
+      "Dutch": 0.0054,
+      "Italian": 0.0,
+      "Swedish": 0.027,
+      "Russian": 0.0,
+      "Other": 0.1351,
+      "Unknown": 0.0162
+     }
+    },
+    "1816 to 1859": {
+     "n": 632,
+     "shares": {
+      "British": 0.2611,
+      "German": 0.0443,
+      "French": 0.5269,
+      "Norwegian": 0.0158,
+      "Dutch": 0.0285,
+      "Italian": 0.0047,
+      "Swedish": 0.0047,
+      "Russian": 0.0032,
+      "Other": 0.0997,
+      "Unknown": 0.0111
+     }
+    },
+    "1860 to 1913": {
+     "n": 793,
+     "shares": {
+      "British": 0.3972,
+      "German": 0.0139,
+      "French": 0.3934,
+      "Norwegian": 0.0315,
+      "Dutch": 0.0139,
+      "Italian": 0.0164,
+      "Swedish": 0.0038,
+      "Russian": 0.005,
+      "Other": 0.0996,
+      "Unknown": 0.0252
+     }
+    },
+    "1914 to 1918": {
+     "n": 300,
+     "shares": {
+      "British": 0.1833,
+      "German": 0.0033,
+      "French": 0.3733,
+      "Norwegian": 0.17,
+      "Dutch": 0.0,
+      "Italian": 0.0133,
+      "Swedish": 0.0067,
+      "Russian": 0.0033,
+      "Other": 0.2433,
+      "Unknown": 0.0033
+     }
+    },
+    "1919 to 1938": {
+     "n": 138,
+     "shares": {
+      "British": 0.1812,
+      "German": 0.0145,
+      "French": 0.2319,
+      "Norwegian": 0.0507,
+      "Dutch": 0.0217,
+      "Italian": 0.029,
+      "Swedish": 0.0,
+      "Russian": 0.0,
+      "Other": 0.4638,
+      "Unknown": 0.0072
+     }
+    },
+    "1939 to 1945": {
+     "n": 270,
+     "shares": {
+      "British": 0.0444,
+      "German": 0.7,
+      "French": 0.1741,
+      "Norwegian": 0.0074,
+      "Dutch": 0.0074,
+      "Italian": 0.0185,
+      "Swedish": 0.0,
+      "Russian": 0.0,
+      "Other": 0.0481,
+      "Unknown": 0.0
+     }
+    }
+   }
+  },
+  {
+   "sea": "Kattegat and Skagerrak",
+   "n": 2706,
+   "shares": {
+    "British": 0.3618,
+    "German": 0.1955,
+    "French": 0.0155,
+    "Norwegian": 0.105,
+    "Dutch": 0.034,
+    "Italian": 0.0015,
+    "Swedish": 0.1186,
+    "Russian": 0.031,
+    "Other": 0.1135,
+    "Unknown": 0.0237
+   },
+   "groups": {
+    "British": 979,
+    "German": 529,
+    "Swedish": 321,
+    "Norwegian": 284,
+    "Danish": 258,
+    "Dutch": 92,
+    "Russian": 84,
+    "Unknown": 64,
+    "French": 42,
+    "American": 19,
+    "Belgian": 8,
+    "Portuguese": 7,
+    "Finnish": 6,
+    "Italian": 4,
+    "Spanish": 3,
+    "Other": 2,
+    "Baltic states": 2,
+    "Irish": 1,
+    "Greek": 1
+   },
+   "top": "British",
+   "top_share": 0.3618,
+   "second": "German",
+   "second_share": 0.1955,
+   "british_share": 0.3618,
+   "effective_flags": 4.63,
+   "top_places": [
+    [
+     "Skagen",
+     575
+    ],
+    [
+     "Læsø",
+     384
+    ],
+    [
+     "Anholt (island)",
+     189
+    ],
+    [
+     "Gothenburg",
+     157
+    ],
+    [
+     "Frederikshavn",
+     109
+    ]
+   ],
+   "lat": 57.71,
+   "lon": 10.74,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 100,
+     "shares": {
+      "British": 0.58,
+      "German": 0.11,
+      "French": 0.0,
+      "Norwegian": 0.0,
+      "Dutch": 0.01,
+      "Italian": 0.0,
+      "Swedish": 0.13,
+      "Russian": 0.04,
+      "Other": 0.11,
+      "Unknown": 0.02
+     }
+    },
+    "1793 to 1815": {
+     "n": 184,
+     "shares": {
+      "British": 0.5489,
+      "German": 0.0761,
+      "French": 0.0054,
+      "Norwegian": 0.0109,
+      "Dutch": 0.0163,
+      "Italian": 0.0,
+      "Swedish": 0.163,
+      "Russian": 0.0163,
+      "Other": 0.1141,
+      "Unknown": 0.0489
+     }
+    },
+    "1816 to 1859": {
+     "n": 1007,
+     "shares": {
+      "British": 0.4191,
+      "German": 0.1946,
+      "French": 0.0228,
+      "Norwegian": 0.0755,
+      "Dutch": 0.0407,
+      "Italian": 0.003,
+      "Swedish": 0.1033,
+      "Russian": 0.0348,
+      "Other": 0.0933,
+      "Unknown": 0.0129
+     }
+    },
+    "1860 to 1913": {
+     "n": 1127,
+     "shares": {
+      "British": 0.3461,
+      "German": 0.1642,
+      "French": 0.016,
+      "Norwegian": 0.1322,
+      "Dutch": 0.0399,
+      "Italian": 0.0009,
+      "Swedish": 0.0985,
+      "Russian": 0.0346,
+      "Other": 0.1322,
+      "Unknown": 0.0355
+     }
+    },
+    "1914 to 1918": {
+     "n": 26,
+     "shares": {
+      "British": 0.0,
+      "German": 0.1154,
+      "French": 0.0,
+      "Norwegian": 0.3077,
+      "Dutch": 0.0,
+      "Italian": 0.0,
+      "Swedish": 0.3846,
+      "Russian": 0.0769,
+      "Other": 0.1154,
+      "Unknown": 0.0
+     }
+    },
+    "1919 to 1938": {
+     "n": 86,
+     "shares": {
+      "British": 0.0581,
+      "German": 0.1628,
+      "French": 0.0,
+      "Norwegian": 0.2442,
+      "Dutch": 0.0116,
+      "Italian": 0.0,
+      "Swedish": 0.3023,
+      "Russian": 0.0116,
+      "Other": 0.2093,
+      "Unknown": 0.0
+     }
+    },
+    "1939 to 1945": {
+     "n": 176,
+     "shares": {
+      "British": 0.017,
+      "German": 0.6023,
+      "French": 0.0,
+      "Norwegian": 0.1591,
+      "Dutch": 0.0057,
+      "Italian": 0.0,
+      "Swedish": 0.1534,
+      "Russian": 0.0,
+      "Other": 0.0625,
+      "Unknown": 0.0
+     }
+    }
+   }
+  },
+  {
+   "sea": "Baltic",
+   "n": 7433,
+   "shares": {
+    "British": 0.4097,
+    "German": 0.2201,
+    "French": 0.013,
+    "Norwegian": 0.0375,
+    "Dutch": 0.0308,
+    "Italian": 0.0017,
+    "Swedish": 0.0813,
+    "Russian": 0.102,
+    "Other": 0.0774,
+    "Unknown": 0.0265
+   },
+   "groups": {
+    "British": 3045,
+    "German": 1636,
+    "Russian": 758,
+    "Swedish": 604,
+    "Danish": 320,
+    "Norwegian": 279,
+    "Dutch": 229,
+    "Unknown": 197,
+    "French": 97,
+    "Finnish": 83,
+    "American": 41,
+    "Baltic states": 41,
+    "Belgian": 25,
+    "Portuguese": 19,
+    "Polish": 15,
+    "Italian": 13,
+    "Irish": 9,
+    "Greek": 8,
+    "Spanish": 7,
+    "Other": 5,
+    "Austrian": 2
+   },
+   "top": "British",
+   "top_share": 0.4097,
+   "second": "German",
+   "second_share": 0.2201,
+   "british_share": 0.4097,
+   "effective_flags": 3.98,
+   "top_places": [
+    [
+     "Helsingør",
+     322
+    ],
+    [
+     "Öland",
+     297
+    ],
+    [
+     "Bornholm",
+     288
+    ],
+    [
+     "Gotland",
+     286
+    ],
+    [
+     "Klaipėda",
+     255
+    ]
+   ],
+   "lat": 56.04,
+   "lon": 17.08,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 310,
+     "shares": {
+      "British": 0.6129,
+      "German": 0.071,
+      "French": 0.0097,
+      "Norwegian": 0.0,
+      "Dutch": 0.0258,
+      "Italian": 0.0,
+      "Swedish": 0.0484,
+      "Russian": 0.1258,
+      "Other": 0.0968,
+      "Unknown": 0.0097
+     }
+    },
+    "1793 to 1815": {
+     "n": 587,
+     "shares": {
+      "British": 0.6116,
+      "German": 0.0903,
+      "French": 0.0034,
+      "Norwegian": 0.0017,
+      "Dutch": 0.0153,
+      "Italian": 0.0,
+      "Swedish": 0.0613,
+      "Russian": 0.1329,
+      "Other": 0.0409,
+      "Unknown": 0.0426
+     }
+    },
+    "1816 to 1859": {
+     "n": 2630,
+     "shares": {
+      "British": 0.5042,
+      "German": 0.1924,
+      "French": 0.0198,
+      "Norwegian": 0.0209,
+      "Dutch": 0.0395,
+      "Italian": 0.0019,
+      "Swedish": 0.0703,
+      "Russian": 0.0741,
+      "Other": 0.0506,
+      "Unknown": 0.0262
+     }
+    },
+    "1860 to 1913": {
+     "n": 2572,
+     "shares": {
+      "British": 0.4339,
+      "German": 0.1742,
+      "French": 0.0152,
+      "Norwegian": 0.0739,
+      "Dutch": 0.0362,
+      "Italian": 0.0016,
+      "Swedish": 0.0937,
+      "Russian": 0.0809,
+      "Other": 0.054,
+      "Unknown": 0.0365
+     }
+    },
+    "1914 to 1918": {
+     "n": 122,
+     "shares": {
+      "British": 0.0902,
+      "German": 0.2295,
+      "French": 0.0,
+      "Norwegian": 0.0164,
+      "Dutch": 0.0082,
+      "Italian": 0.0,
+      "Swedish": 0.2377,
+      "Russian": 0.3607,
+      "Other": 0.0574,
+      "Unknown": 0.0
+     }
+    },
+    "1919 to 1938": {
+     "n": 341,
+     "shares": {
+      "British": 0.1114,
+      "German": 0.2287,
+      "French": 0.0,
+      "Norwegian": 0.0557,
+      "Dutch": 0.0264,
+      "Italian": 0.0117,
+      "Swedish": 0.1701,
+      "Russian": 0.0411,
+      "Other": 0.3402,
+      "Unknown": 0.0147
+     }
+    },
+    "1939 to 1945": {
+     "n": 871,
+     "shares": {
+      "British": 0.0057,
+      "German": 0.5752,
+      "French": 0.0011,
+      "Norwegian": 0.0138,
+      "Dutch": 0.0057,
+      "Italian": 0.0,
+      "Swedish": 0.0459,
+      "Russian": 0.2067,
+      "Other": 0.1447,
+      "Unknown": 0.0011
+     }
+    }
+   }
+  },
+  {
+   "sea": "Norwegian Sea and Arctic",
+   "n": 1038,
+   "shares": {
+    "British": 0.2322,
+    "German": 0.3141,
+    "French": 0.0087,
+    "Norwegian": 0.2303,
+    "Dutch": 0.0145,
+    "Italian": 0.001,
+    "Swedish": 0.025,
+    "Russian": 0.0963,
+    "Other": 0.0665,
+    "Unknown": 0.0116
+   },
+   "groups": {
+    "German": 326,
+    "British": 241,
+    "Norwegian": 239,
+    "Russian": 100,
+    "Danish": 28,
+    "Swedish": 26,
+    "American": 19,
+    "Dutch": 15,
+    "Unknown": 12,
+    "French": 9,
+    "Other": 5,
+    "Finnish": 4,
+    "Greek": 4,
+    "Baltic states": 3,
+    "Belgian": 2,
+    "Polish": 2,
+    "Portuguese": 1,
+    "Spanish": 1,
+    "Italian": 1
+   },
+   "top": "German",
+   "top_share": 0.3141,
+   "second": "British",
+   "second_share": 0.2322,
+   "british_share": 0.2322,
+   "effective_flags": 4.5,
+   "top_places": [
+    [
+     "Arkhangelsk",
+     86
+    ],
+    [
+     "Trondheim",
+     45
+    ],
+    [
+     "Vardø (town)",
+     26
+    ],
+    [
+     "Kirkenes",
+     23
+    ],
+    [
+     "Ålesund",
+     22
+    ]
+   ],
+   "lat": 65.47,
+   "lon": 14.77,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 13,
+     "shares": {
+      "British": 0.3846,
+      "German": 0.0769,
+      "French": 0.0,
+      "Norwegian": 0.0,
+      "Dutch": 0.0769,
+      "Italian": 0.0,
+      "Swedish": 0.0,
+      "Russian": 0.3077,
+      "Other": 0.0769,
+      "Unknown": 0.0769
+     }
+    },
+    "1793 to 1815": {
+     "n": 39,
+     "shares": {
+      "British": 0.5385,
+      "German": 0.0769,
+      "French": 0.0256,
+      "Norwegian": 0.0256,
+      "Dutch": 0.0,
+      "Italian": 0.0,
+      "Swedish": 0.0,
+      "Russian": 0.2051,
+      "Other": 0.1026,
+      "Unknown": 0.0256
+     }
+    },
+    "1816 to 1859": {
+     "n": 130,
+     "shares": {
+      "British": 0.4846,
+      "German": 0.1154,
+      "French": 0.0231,
+      "Norwegian": 0.1692,
+      "Dutch": 0.0308,
+      "Italian": 0.0,
+      "Swedish": 0.0154,
+      "Russian": 0.1,
+      "Other": 0.0385,
+      "Unknown": 0.0231
+     }
+    },
+    "1860 to 1913": {
+     "n": 134,
+     "shares": {
+      "British": 0.3731,
+      "German": 0.0299,
+      "French": 0.0075,
+      "Norwegian": 0.3582,
+      "Dutch": 0.0373,
+      "Italian": 0.0,
+      "Swedish": 0.0373,
+      "Russian": 0.0597,
+      "Other": 0.0448,
+      "Unknown": 0.0522
+     }
+    },
+    "1914 to 1918": {
+     "n": 103,
+     "shares": {
+      "British": 0.2718,
+      "German": 0.0291,
+      "French": 0.0097,
+      "Norwegian": 0.3495,
+      "Dutch": 0.0194,
+      "Italian": 0.0,
+      "Swedish": 0.068,
+      "Russian": 0.1748,
+      "Other": 0.0777,
+      "Unknown": 0.0
+     }
+    },
+    "1919 to 1938": {
+     "n": 67,
+     "shares": {
+      "British": 0.1194,
+      "German": 0.1791,
+      "French": 0.0149,
+      "Norwegian": 0.3284,
+      "Dutch": 0.0299,
+      "Italian": 0.0149,
+      "Swedish": 0.0746,
+      "Russian": 0.1194,
+      "Other": 0.1194,
+      "Unknown": 0.0
+     }
+    },
+    "1939 to 1945": {
+     "n": 552,
+     "shares": {
+      "British": 0.1196,
+      "German": 0.5217,
+      "French": 0.0036,
+      "Norwegian": 0.1993,
+      "Dutch": 0.0018,
+      "Italian": 0.0,
+      "Swedish": 0.0127,
+      "Russian": 0.0743,
+      "Other": 0.067,
+      "Unknown": 0.0
+     }
+    }
+   }
+  },
+  {
+   "sea": "Mediterranean",
+   "n": 8018,
+   "shares": {
+    "British": 0.3915,
+    "German": 0.0832,
+    "French": 0.1009,
+    "Norwegian": 0.014,
+    "Dutch": 0.0122,
+    "Italian": 0.1899,
+    "Swedish": 0.0054,
+    "Russian": 0.0101,
+    "Other": 0.1765,
+    "Unknown": 0.0163
+   },
+   "groups": {
+    "British": 3139,
+    "Italian": 1523,
+    "French": 809,
+    "German": 667,
+    "Greek": 461,
+    "Spanish": 229,
+    "American": 220,
+    "Other": 153,
+    "Unknown": 131,
+    "Austrian": 121,
+    "Norwegian": 112,
+    "Dutch": 98,
+    "Russian": 81,
+    "Ottoman": 77,
+    "Belgian": 46,
+    "Danish": 45,
+    "Swedish": 43,
+    "Portuguese": 31,
+    "Yugoslav": 19,
+    "Irish": 8,
+    "Romanian": 4,
+    "Polish": 1
+   },
+   "top": "British",
+   "top_share": 0.3915,
+   "second": "Italian",
+   "second_share": 0.1899,
+   "british_share": 0.3915,
+   "effective_flags": 4.55,
+   "top_places": [
+    [
+     "Gibraltar",
+     454
+    ],
+    [
+     "Dardanelles",
+     361
+    ],
+    [
+     "Alexandria",
+     170
+    ],
+    [
+     "Livorno",
+     128
+    ],
+    [
+     "Marseille",
+     107
+    ]
+   ],
+   "lat": 38.02,
+   "lon": 12.05,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 169,
+     "shares": {
+      "British": 0.6627,
+      "German": 0.0059,
+      "French": 0.0769,
+      "Norwegian": 0.0,
+      "Dutch": 0.0178,
+      "Italian": 0.0651,
+      "Swedish": 0.0059,
+      "Russian": 0.0355,
+      "Other": 0.1124,
+      "Unknown": 0.0178
+     }
+    },
+    "1793 to 1815": {
+     "n": 233,
+     "shares": {
+      "British": 0.6395,
+      "German": 0.0086,
+      "French": 0.1073,
+      "Norwegian": 0.0,
+      "Dutch": 0.0043,
+      "Italian": 0.0129,
+      "Swedish": 0.0043,
+      "Russian": 0.0043,
+      "Other": 0.1845,
+      "Unknown": 0.0343
+     }
+    },
+    "1816 to 1859": {
+     "n": 1819,
+     "shares": {
+      "British": 0.5316,
+      "German": 0.0192,
+      "French": 0.1572,
+      "Norwegian": 0.0104,
+      "Dutch": 0.028,
+      "Italian": 0.0445,
+      "Swedish": 0.0121,
+      "Russian": 0.022,
+      "Other": 0.1517,
+      "Unknown": 0.0231
+     }
+    },
+    "1860 to 1913": {
+     "n": 1950,
+     "shares": {
+      "British": 0.4913,
+      "German": 0.0262,
+      "French": 0.0913,
+      "Norwegian": 0.0179,
+      "Dutch": 0.0123,
+      "Italian": 0.1385,
+      "Swedish": 0.0031,
+      "Russian": 0.0128,
+      "Other": 0.1697,
+      "Unknown": 0.0369
+     }
+    },
+    "1914 to 1918": {
+     "n": 1309,
+     "shares": {
+      "British": 0.3675,
+      "German": 0.0191,
+      "French": 0.1276,
+      "Norwegian": 0.0229,
+      "Dutch": 0.0,
+      "Italian": 0.2857,
+      "Swedish": 0.0023,
+      "Russian": 0.0038,
+      "Other": 0.1711,
+      "Unknown": 0.0
+     }
+    },
+    "1919 to 1938": {
+     "n": 471,
+     "shares": {
+      "British": 0.1592,
+      "German": 0.017,
+      "French": 0.1274,
+      "Norwegian": 0.0191,
+      "Dutch": 0.0106,
+      "Italian": 0.2038,
+      "Swedish": 0.0106,
+      "Russian": 0.0042,
+      "Other": 0.4437,
+      "Unknown": 0.0042
+     }
+    },
+    "1939 to 1945": {
+     "n": 2067,
+     "shares": {
+      "British": 0.1921,
+      "German": 0.2637,
+      "French": 0.0387,
+      "Norwegian": 0.0092,
+      "Dutch": 0.0068,
+      "Italian": 0.3328,
+      "Swedish": 0.0024,
+      "Russian": 0.001,
+      "Other": 0.1514,
+      "Unknown": 0.0019
+     }
+    }
+   }
+  },
+  {
+   "sea": "Black Sea",
+   "n": 1431,
+   "shares": {
+    "British": 0.3578,
+    "German": 0.0985,
+    "French": 0.0259,
+    "Norwegian": 0.007,
+    "Dutch": 0.0063,
+    "Italian": 0.0342,
+    "Swedish": 0.0028,
+    "Russian": 0.2586,
+    "Other": 0.1824,
+    "Unknown": 0.0266
+   },
+   "groups": {
+    "British": 512,
+    "Russian": 370,
+    "German": 141,
+    "Ottoman": 77,
+    "Greek": 65,
+    "Italian": 49,
+    "Romanian": 44,
+    "Unknown": 38,
+    "French": 37,
+    "Austrian": 36,
+    "Other": 16,
+    "Belgian": 11,
+    "Norwegian": 10,
+    "Dutch": 9,
+    "American": 6,
+    "Yugoslav": 5,
+    "Swedish": 4,
+    "Spanish": 1
+   },
+   "top": "British",
+   "top_share": 0.3578,
+   "second": "Russian",
+   "second_share": 0.2586,
+   "british_share": 0.3578,
+   "effective_flags": 4.44,
+   "top_places": [
+    [
+     "Danube",
+     197
+    ],
+    [
+     "Bosporus",
+     103
+    ],
+    [
+     "Kerch",
+     92
+    ],
+    [
+     "Sulina",
+     84
+    ],
+    [
+     "Odesa",
+     83
+    ]
+   ],
+   "lat": 45.16,
+   "lon": 29.76,
+   "by_era": {
+    "1744 to 1792": {
+     "n": 28,
+     "shares": {
+      "British": 0.0,
+      "German": 0.0,
+      "French": 0.0,
+      "Norwegian": 0.0,
+      "Dutch": 0.0,
+      "Italian": 0.0,
+      "Swedish": 0.0,
+      "Russian": 0.9643,
+      "Other": 0.0357,
+      "Unknown": 0.0
+     }
+    },
+    "1793 to 1815": {
+     "n": 19,
+     "shares": {
+      "British": 0.0,
+      "German": 0.0,
+      "French": 0.0,
+      "Norwegian": 0.0,
+      "Dutch": 0.0,
+      "Italian": 0.0,
+      "Swedish": 0.0,
+      "Russian": 1.0,
+      "Other": 0.0,
+      "Unknown": 0.0
+     }
+    },
+    "1816 to 1859": {
+     "n": 324,
+     "shares": {
+      "British": 0.5278,
+      "German": 0.0309,
+      "French": 0.0586,
+      "Norwegian": 0.0062,
+      "Dutch": 0.0123,
+      "Italian": 0.0093,
+      "Swedish": 0.0062,
+      "Russian": 0.1883,
+      "Other": 0.1389,
+      "Unknown": 0.0216
+     }
+    },
+    "1860 to 1913": {
+     "n": 564,
+     "shares": {
+      "British": 0.578,
+      "German": 0.0089,
+      "French": 0.016,
+      "Norwegian": 0.0106,
+      "Dutch": 0.0071,
+      "Italian": 0.0408,
+      "Swedish": 0.0018,
+      "Russian": 0.0869,
+      "Other": 0.1968,
+      "Unknown": 0.0532
+     }
+    },
+    "1914 to 1918": {
+     "n": 48,
+     "shares": {
+      "British": 0.0208,
+      "German": 0.0625,
+      "French": 0.0,
+      "Norwegian": 0.0,
+      "Dutch": 0.0,
+      "Italian": 0.0208,
+      "Swedish": 0.0,
+      "Russian": 0.6458,
+      "Other": 0.25,
+      "Unknown": 0.0
+     }
+    },
+    "1919 to 1938": {
+     "n": 111,
+     "shares": {
+      "British": 0.1261,
+      "German": 0.036,
+      "French": 0.0811,
+      "Norwegian": 0.018,
+      "Dutch": 0.009,
+      "Italian": 0.1261,
+      "Swedish": 0.009,
+      "Russian": 0.1441,
+      "Other": 0.4505,
+      "Unknown": 0.0
+     }
+    },
+    "1939 to 1945": {
+     "n": 337,
+     "shares": {
+      "British": 0.0,
+      "German": 0.3531,
+      "French": 0.0,
+      "Norwegian": 0.0,
+      "Dutch": 0.0,
+      "Italian": 0.0237,
+      "Swedish": 0.0,
+      "Russian": 0.4955,
+      "Other": 0.1246,
+      "Unknown": 0.003
+     }
+    }
+   }
+  }
+ ],
+ "seas_by_diversity": [
+  "Kattegat and Skagerrak",
+  "Mediterranean",
+  "Norwegian Sea and Arctic",
+  "Black Sea",
+  "Baltic",
+  "Bay of Biscay",
+  "Atlantic",
+  "English Channel",
+  "North Sea",
+  "Irish Sea and approaches"
+ ],
+ "coasts": [
+  {
+   "coast": "United Kingdom",
+   "n": 62048,
+   "own_group": "British",
+   "own_share": 0.8397,
+   "own_share_1816_1913": 0.8561,
+   "british_share": 0.8397,
+   "top": "British",
+   "top_share": 0.8397,
+   "top_foreign": "French",
+   "top_foreign_share": 0.0306,
+   "shares": {
+    "British": 0.8397,
+    "German": 0.0255,
+    "French": 0.0306,
+    "Norwegian": 0.0217,
+    "Dutch": 0.0133,
+    "Italian": 0.0048,
+    "Swedish": 0.0105,
+    "Russian": 0.0044,
+    "Other": 0.0376,
+    "Unknown": 0.0118
+   }
+  },
+  {
+   "coast": "Ireland",
+   "n": 7007,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.8108,
+   "top": "British",
+   "top_share": 0.8108,
+   "top_foreign": "British",
+   "top_foreign_share": 0.8108,
+   "shares": {
+    "British": 0.8108,
+    "German": 0.0298,
+    "French": 0.0144,
+    "Norwegian": 0.0203,
+    "Dutch": 0.0059,
+    "Italian": 0.0104,
+    "Swedish": 0.0047,
+    "Russian": 0.0043,
+    "Other": 0.0891,
+    "Unknown": 0.0104
+   }
+  },
+  {
+   "coast": "France",
+   "n": 6623,
+   "own_group": "French",
+   "own_share": 0.323,
+   "own_share_1816_1913": 0.3729,
+   "british_share": 0.3902,
+   "top": "British",
+   "top_share": 0.3902,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3902,
+   "shares": {
+    "British": 0.3902,
+    "German": 0.0892,
+    "French": 0.323,
+    "Norwegian": 0.0326,
+    "Dutch": 0.0211,
+    "Italian": 0.0198,
+    "Swedish": 0.0107,
+    "Russian": 0.0069,
+    "Other": 0.0938,
+    "Unknown": 0.0127
+   }
+  },
+  {
+   "coast": "Denmark",
+   "n": 4101,
+   "own_group": "Danish",
+   "own_share": 0.1166,
+   "own_share_1816_1913": 0.1066,
+   "british_share": 0.4104,
+   "top": "British",
+   "top_share": 0.4104,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4104,
+   "shares": {
+    "British": 0.4104,
+    "German": 0.199,
+    "French": 0.0166,
+    "Norwegian": 0.0673,
+    "Dutch": 0.0427,
+    "Italian": 0.0017,
+    "Swedish": 0.0751,
+    "Russian": 0.031,
+    "Other": 0.1353,
+    "Unknown": 0.021
+   }
+  },
+  {
+   "coast": "Netherlands",
+   "n": 3790,
+   "own_group": "Dutch",
+   "own_share": 0.214,
+   "own_share_1816_1913": 0.2177,
+   "british_share": 0.4,
+   "top": "British",
+   "top_share": 0.4,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4,
+   "shares": {
+    "British": 0.4,
+    "German": 0.1475,
+    "French": 0.0351,
+    "Norwegian": 0.0311,
+    "Dutch": 0.214,
+    "Italian": 0.0058,
+    "Swedish": 0.0248,
+    "Russian": 0.0124,
+    "Other": 0.1063,
+    "Unknown": 0.023
+   }
+  },
+  {
+   "coast": "Spain",
+   "n": 3242,
+   "own_group": "Spanish",
+   "own_share": 0.1225,
+   "own_share_1816_1913": 0.1038,
+   "british_share": 0.4923,
+   "top": "British",
+   "top_share": 0.4923,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4923,
+   "shares": {
+    "British": 0.4923,
+    "German": 0.0358,
+    "French": 0.1046,
+    "Norwegian": 0.029,
+    "Dutch": 0.021,
+    "Italian": 0.0512,
+    "Swedish": 0.0102,
+    "Russian": 0.0074,
+    "Other": 0.2289,
+    "Unknown": 0.0197
+   }
+  },
+  {
+   "coast": "Germany",
+   "n": 2832,
+   "own_group": "German",
+   "own_share": 0.4544,
+   "own_share_1816_1913": 0.386,
+   "british_share": 0.3422,
+   "top": "German",
+   "top_share": 0.4544,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3422,
+   "shares": {
+    "British": 0.3422,
+    "German": 0.4544,
+    "French": 0.0127,
+    "Norwegian": 0.0198,
+    "Dutch": 0.0434,
+    "Italian": 0.0039,
+    "Swedish": 0.0222,
+    "Russian": 0.0092,
+    "Other": 0.0653,
+    "Unknown": 0.0268
+   }
+  },
+  {
+   "coast": "Sweden",
+   "n": 2410,
+   "own_group": "Swedish",
+   "own_share": 0.2112,
+   "own_share_1816_1913": 0.1926,
+   "british_share": 0.4062,
+   "top": "British",
+   "top_share": 0.4062,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4062,
+   "shares": {
+    "British": 0.4062,
+    "German": 0.132,
+    "French": 0.0149,
+    "Norwegian": 0.0602,
+    "Dutch": 0.0274,
+    "Italian": 0.0017,
+    "Swedish": 0.2112,
+    "Russian": 0.0473,
+    "Other": 0.0689,
+    "Unknown": 0.0303
+   }
+  },
+  {
+   "coast": "Italy",
+   "n": 1839,
+   "own_group": "Italian",
+   "own_share": 0.3812,
+   "own_share_1816_1913": 0.2511,
+   "british_share": 0.3002,
+   "top": "Italian",
+   "top_share": 0.3812,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3002,
+   "shares": {
+    "British": 0.3002,
+    "German": 0.1229,
+    "French": 0.0451,
+    "Norwegian": 0.0103,
+    "Dutch": 0.0087,
+    "Italian": 0.3812,
+    "Swedish": 0.0038,
+    "Russian": 0.0033,
+    "Other": 0.1115,
+    "Unknown": 0.0131
+   }
+  },
+  {
+   "coast": "Norway",
+   "n": 1750,
+   "own_group": "Norwegian",
+   "own_share": 0.3189,
+   "own_share_1816_1913": 0.3352,
+   "british_share": 0.1903,
+   "top": "Norwegian",
+   "top_share": 0.3189,
+   "top_foreign": "German",
+   "top_foreign_share": 0.3023,
+   "shares": {
+    "British": 0.1903,
+    "German": 0.3023,
+    "French": 0.012,
+    "Norwegian": 0.3189,
+    "Dutch": 0.0274,
+    "Italian": 0.0006,
+    "Swedish": 0.0497,
+    "Russian": 0.028,
+    "Other": 0.0594,
+    "Unknown": 0.0114
+   }
+  },
+  {
+   "coast": "Portugal",
+   "n": 1494,
+   "own_group": "Portuguese",
+   "own_share": 0.1305,
+   "own_share_1816_1913": 0.1288,
+   "british_share": 0.5375,
+   "top": "British",
+   "top_share": 0.5375,
+   "top_foreign": "British",
+   "top_foreign_share": 0.5375,
+   "shares": {
+    "British": 0.5375,
+    "German": 0.0509,
+    "French": 0.0556,
+    "Norwegian": 0.0295,
+    "Dutch": 0.0194,
+    "Italian": 0.0241,
+    "Swedish": 0.012,
+    "Russian": 0.01,
+    "Other": 0.247,
+    "Unknown": 0.0141
+   }
+  },
+  {
+   "coast": "Russia",
+   "n": 1290,
+   "own_group": "Russian",
+   "own_share": 0.3457,
+   "own_share_1816_1913": 0.2156,
+   "british_share": 0.3659,
+   "top": "British",
+   "top_share": 0.3659,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3659,
+   "shares": {
+    "British": 0.3659,
+    "German": 0.1364,
+    "French": 0.014,
+    "Norwegian": 0.0264,
+    "Dutch": 0.0186,
+    "Italian": 0.0078,
+    "Swedish": 0.0078,
+    "Russian": 0.3457,
+    "Other": 0.0566,
+    "Unknown": 0.0209
+   }
+  },
+  {
+   "coast": "Turkey",
+   "n": 1070,
+   "own_group": "Ottoman",
+   "own_share": 0.0654,
+   "own_share_1816_1913": 0.0297,
+   "british_share": 0.5935,
+   "top": "British",
+   "top_share": 0.5935,
+   "top_foreign": "British",
+   "top_foreign_share": 0.5935,
+   "shares": {
+    "British": 0.5935,
+    "German": 0.029,
+    "French": 0.0421,
+    "Norwegian": 0.0112,
+    "Dutch": 0.0121,
+    "Italian": 0.0439,
+    "Swedish": 0.0037,
+    "Russian": 0.0477,
+    "Other": 0.185,
+    "Unknown": 0.0318
+   }
+  },
+  {
+   "coast": "Greece",
+   "n": 1022,
+   "own_group": "Greek",
+   "own_share": 0.275,
+   "own_share_1816_1913": 0.1182,
+   "british_share": 0.3307,
+   "top": "British",
+   "top_share": 0.3307,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3307,
+   "shares": {
+    "British": 0.3307,
+    "German": 0.1096,
+    "French": 0.0479,
+    "Norwegian": 0.0088,
+    "Dutch": 0.0068,
+    "Italian": 0.1252,
+    "Swedish": 0.0029,
+    "Russian": 0.0127,
+    "Other": 0.3434,
+    "Unknown": 0.0117
+   }
+  },
+  {
+   "coast": "Estonia",
+   "n": 699,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.3891,
+   "top": "British",
+   "top_share": 0.3891,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3891,
+   "shares": {
+    "British": 0.3891,
+    "German": 0.1059,
+    "French": 0.0215,
+    "Norwegian": 0.03,
+    "Dutch": 0.0343,
+    "Italian": 0.0014,
+    "Swedish": 0.0258,
+    "Russian": 0.3033,
+    "Other": 0.0486,
+    "Unknown": 0.0401
+   }
+  },
+  {
+   "coast": "Poland",
+   "n": 565,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.285,
+   "top": "German",
+   "top_share": 0.5451,
+   "top_foreign": "German",
+   "top_foreign_share": 0.5451,
+   "shares": {
+    "British": 0.285,
+    "German": 0.5451,
+    "French": 0.0106,
+    "Norwegian": 0.0159,
+    "Dutch": 0.0212,
+    "Italian": 0.0035,
+    "Swedish": 0.0283,
+    "Russian": 0.0195,
+    "Other": 0.0496,
+    "Unknown": 0.0212
+   }
+  },
+  {
+   "coast": "Latvia",
+   "n": 521,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.4664,
+   "top": "British",
+   "top_share": 0.4664,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4664,
+   "shares": {
+    "British": 0.4664,
+    "German": 0.2035,
+    "French": 0.0154,
+    "Norwegian": 0.0365,
+    "Dutch": 0.0307,
+    "Italian": 0.0,
+    "Swedish": 0.0173,
+    "Russian": 0.1228,
+    "Other": 0.0672,
+    "Unknown": 0.0403
+   }
+  },
+  {
+   "coast": "Belgium",
+   "n": 490,
+   "own_group": "Belgian",
+   "own_share": 0.1245,
+   "own_share_1816_1913": 0.1697,
+   "british_share": 0.4755,
+   "top": "British",
+   "top_share": 0.4755,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4755,
+   "shares": {
+    "British": 0.4755,
+    "German": 0.1265,
+    "French": 0.051,
+    "Norwegian": 0.0143,
+    "Dutch": 0.0959,
+    "Italian": 0.0082,
+    "Swedish": 0.0102,
+    "Russian": 0.0061,
+    "Other": 0.2,
+    "Unknown": 0.0122
+   }
+  },
+  {
+   "coast": "Finland",
+   "n": 433,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.418,
+   "top": "British",
+   "top_share": 0.418,
+   "top_foreign": "British",
+   "top_foreign_share": 0.418,
+   "shares": {
+    "British": 0.418,
+    "German": 0.0693,
+    "French": 0.0023,
+    "Norwegian": 0.03,
+    "Dutch": 0.03,
+    "Italian": 0.0,
+    "Swedish": 0.067,
+    "Russian": 0.2448,
+    "Other": 0.1062,
+    "Unknown": 0.0323
+   }
+  },
+  {
+   "coast": "Tunisia",
+   "n": 421,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.2803,
+   "top": "Italian",
+   "top_share": 0.3468,
+   "top_foreign": "Italian",
+   "top_foreign_share": 0.3468,
+   "shares": {
+    "British": 0.2803,
+    "German": 0.1164,
+    "French": 0.1211,
+    "Norwegian": 0.0143,
+    "Dutch": 0.0071,
+    "Italian": 0.3468,
+    "Swedish": 0.0024,
+    "Russian": 0.0024,
+    "Other": 0.1069,
+    "Unknown": 0.0024
+   }
+  },
+  {
+   "coast": "Algeria",
+   "n": 398,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.4548,
+   "top": "British",
+   "top_share": 0.4548,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4548,
+   "shares": {
+    "British": 0.4548,
+    "German": 0.0427,
+    "French": 0.2261,
+    "Norwegian": 0.0251,
+    "Dutch": 0.0201,
+    "Italian": 0.0905,
+    "Swedish": 0.0,
+    "Russian": 0.005,
+    "Other": 0.1281,
+    "Unknown": 0.0075
+   }
+  },
+  {
+   "coast": "Romania",
+   "n": 362,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.4365,
+   "top": "British",
+   "top_share": 0.4365,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4365,
+   "shares": {
+    "British": 0.4365,
+    "German": 0.0967,
+    "French": 0.0249,
+    "Norwegian": 0.0083,
+    "Dutch": 0.0166,
+    "Italian": 0.0276,
+    "Swedish": 0.0028,
+    "Russian": 0.0884,
+    "Other": 0.2597,
+    "Unknown": 0.0387
+   }
+  },
+  {
+   "coast": "Libya",
+   "n": 312,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.3654,
+   "top": "Italian",
+   "top_share": 0.4167,
+   "top_foreign": "Italian",
+   "top_foreign_share": 0.4167,
+   "shares": {
+    "British": 0.3654,
+    "German": 0.1122,
+    "French": 0.0128,
+    "Norwegian": 0.0128,
+    "Dutch": 0.0,
+    "Italian": 0.4167,
+    "Swedish": 0.0,
+    "Russian": 0.0,
+    "Other": 0.0769,
+    "Unknown": 0.0032
+   }
+  },
+  {
+   "coast": "Lithuania",
+   "n": 284,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.5669,
+   "top": "British",
+   "top_share": 0.5669,
+   "top_foreign": "British",
+   "top_foreign_share": 0.5669,
+   "shares": {
+    "British": 0.5669,
+    "German": 0.2993,
+    "French": 0.0,
+    "Norwegian": 0.0141,
+    "Dutch": 0.0141,
+    "Italian": 0.0,
+    "Swedish": 0.0176,
+    "Russian": 0.0282,
+    "Other": 0.0423,
+    "Unknown": 0.0176
+   }
+  },
+  {
+   "coast": "Egypt",
+   "n": 279,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.6272,
+   "top": "British",
+   "top_share": 0.6272,
+   "top_foreign": "British",
+   "top_foreign_share": 0.6272,
+   "shares": {
+    "British": 0.6272,
+    "German": 0.0287,
+    "French": 0.0609,
+    "Norwegian": 0.0179,
+    "Dutch": 0.0108,
+    "Italian": 0.0681,
+    "Swedish": 0.0,
+    "Russian": 0.0072,
+    "Other": 0.1649,
+    "Unknown": 0.0143
+   }
+  },
+  {
+   "coast": "Ukraine",
+   "n": 213,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.3662,
+   "top": "British",
+   "top_share": 0.3662,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3662,
+   "shares": {
+    "British": 0.3662,
+    "German": 0.1221,
+    "French": 0.0094,
+    "Norwegian": 0.0094,
+    "Dutch": 0.0047,
+    "Italian": 0.0282,
+    "Swedish": 0.0094,
+    "Russian": 0.338,
+    "Other": 0.0939,
+    "Unknown": 0.0188
+   }
+  }
+ ],
+ "coast": {
+  "United Kingdom": {
+   "coast": "United Kingdom",
+   "n": 62048,
+   "own_group": "British",
+   "own_share": 0.8397,
+   "own_share_1816_1913": 0.8561,
+   "british_share": 0.8397,
+   "top": "British",
+   "top_share": 0.8397,
+   "top_foreign": "French",
+   "top_foreign_share": 0.0306,
+   "shares": {
+    "British": 0.8397,
+    "German": 0.0255,
+    "French": 0.0306,
+    "Norwegian": 0.0217,
+    "Dutch": 0.0133,
+    "Italian": 0.0048,
+    "Swedish": 0.0105,
+    "Russian": 0.0044,
+    "Other": 0.0376,
+    "Unknown": 0.0118
+   }
+  },
+  "Ireland": {
+   "coast": "Ireland",
+   "n": 7007,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.8108,
+   "top": "British",
+   "top_share": 0.8108,
+   "top_foreign": "British",
+   "top_foreign_share": 0.8108,
+   "shares": {
+    "British": 0.8108,
+    "German": 0.0298,
+    "French": 0.0144,
+    "Norwegian": 0.0203,
+    "Dutch": 0.0059,
+    "Italian": 0.0104,
+    "Swedish": 0.0047,
+    "Russian": 0.0043,
+    "Other": 0.0891,
+    "Unknown": 0.0104
+   }
+  },
+  "France": {
+   "coast": "France",
+   "n": 6623,
+   "own_group": "French",
+   "own_share": 0.323,
+   "own_share_1816_1913": 0.3729,
+   "british_share": 0.3902,
+   "top": "British",
+   "top_share": 0.3902,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3902,
+   "shares": {
+    "British": 0.3902,
+    "German": 0.0892,
+    "French": 0.323,
+    "Norwegian": 0.0326,
+    "Dutch": 0.0211,
+    "Italian": 0.0198,
+    "Swedish": 0.0107,
+    "Russian": 0.0069,
+    "Other": 0.0938,
+    "Unknown": 0.0127
+   }
+  },
+  "Denmark": {
+   "coast": "Denmark",
+   "n": 4101,
+   "own_group": "Danish",
+   "own_share": 0.1166,
+   "own_share_1816_1913": 0.1066,
+   "british_share": 0.4104,
+   "top": "British",
+   "top_share": 0.4104,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4104,
+   "shares": {
+    "British": 0.4104,
+    "German": 0.199,
+    "French": 0.0166,
+    "Norwegian": 0.0673,
+    "Dutch": 0.0427,
+    "Italian": 0.0017,
+    "Swedish": 0.0751,
+    "Russian": 0.031,
+    "Other": 0.1353,
+    "Unknown": 0.021
+   }
+  },
+  "Netherlands": {
+   "coast": "Netherlands",
+   "n": 3790,
+   "own_group": "Dutch",
+   "own_share": 0.214,
+   "own_share_1816_1913": 0.2177,
+   "british_share": 0.4,
+   "top": "British",
+   "top_share": 0.4,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4,
+   "shares": {
+    "British": 0.4,
+    "German": 0.1475,
+    "French": 0.0351,
+    "Norwegian": 0.0311,
+    "Dutch": 0.214,
+    "Italian": 0.0058,
+    "Swedish": 0.0248,
+    "Russian": 0.0124,
+    "Other": 0.1063,
+    "Unknown": 0.023
+   }
+  },
+  "Spain": {
+   "coast": "Spain",
+   "n": 3242,
+   "own_group": "Spanish",
+   "own_share": 0.1225,
+   "own_share_1816_1913": 0.1038,
+   "british_share": 0.4923,
+   "top": "British",
+   "top_share": 0.4923,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4923,
+   "shares": {
+    "British": 0.4923,
+    "German": 0.0358,
+    "French": 0.1046,
+    "Norwegian": 0.029,
+    "Dutch": 0.021,
+    "Italian": 0.0512,
+    "Swedish": 0.0102,
+    "Russian": 0.0074,
+    "Other": 0.2289,
+    "Unknown": 0.0197
+   }
+  },
+  "Germany": {
+   "coast": "Germany",
+   "n": 2832,
+   "own_group": "German",
+   "own_share": 0.4544,
+   "own_share_1816_1913": 0.386,
+   "british_share": 0.3422,
+   "top": "German",
+   "top_share": 0.4544,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3422,
+   "shares": {
+    "British": 0.3422,
+    "German": 0.4544,
+    "French": 0.0127,
+    "Norwegian": 0.0198,
+    "Dutch": 0.0434,
+    "Italian": 0.0039,
+    "Swedish": 0.0222,
+    "Russian": 0.0092,
+    "Other": 0.0653,
+    "Unknown": 0.0268
+   }
+  },
+  "Sweden": {
+   "coast": "Sweden",
+   "n": 2410,
+   "own_group": "Swedish",
+   "own_share": 0.2112,
+   "own_share_1816_1913": 0.1926,
+   "british_share": 0.4062,
+   "top": "British",
+   "top_share": 0.4062,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4062,
+   "shares": {
+    "British": 0.4062,
+    "German": 0.132,
+    "French": 0.0149,
+    "Norwegian": 0.0602,
+    "Dutch": 0.0274,
+    "Italian": 0.0017,
+    "Swedish": 0.2112,
+    "Russian": 0.0473,
+    "Other": 0.0689,
+    "Unknown": 0.0303
+   }
+  },
+  "Italy": {
+   "coast": "Italy",
+   "n": 1839,
+   "own_group": "Italian",
+   "own_share": 0.3812,
+   "own_share_1816_1913": 0.2511,
+   "british_share": 0.3002,
+   "top": "Italian",
+   "top_share": 0.3812,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3002,
+   "shares": {
+    "British": 0.3002,
+    "German": 0.1229,
+    "French": 0.0451,
+    "Norwegian": 0.0103,
+    "Dutch": 0.0087,
+    "Italian": 0.3812,
+    "Swedish": 0.0038,
+    "Russian": 0.0033,
+    "Other": 0.1115,
+    "Unknown": 0.0131
+   }
+  },
+  "Norway": {
+   "coast": "Norway",
+   "n": 1750,
+   "own_group": "Norwegian",
+   "own_share": 0.3189,
+   "own_share_1816_1913": 0.3352,
+   "british_share": 0.1903,
+   "top": "Norwegian",
+   "top_share": 0.3189,
+   "top_foreign": "German",
+   "top_foreign_share": 0.3023,
+   "shares": {
+    "British": 0.1903,
+    "German": 0.3023,
+    "French": 0.012,
+    "Norwegian": 0.3189,
+    "Dutch": 0.0274,
+    "Italian": 0.0006,
+    "Swedish": 0.0497,
+    "Russian": 0.028,
+    "Other": 0.0594,
+    "Unknown": 0.0114
+   }
+  },
+  "Portugal": {
+   "coast": "Portugal",
+   "n": 1494,
+   "own_group": "Portuguese",
+   "own_share": 0.1305,
+   "own_share_1816_1913": 0.1288,
+   "british_share": 0.5375,
+   "top": "British",
+   "top_share": 0.5375,
+   "top_foreign": "British",
+   "top_foreign_share": 0.5375,
+   "shares": {
+    "British": 0.5375,
+    "German": 0.0509,
+    "French": 0.0556,
+    "Norwegian": 0.0295,
+    "Dutch": 0.0194,
+    "Italian": 0.0241,
+    "Swedish": 0.012,
+    "Russian": 0.01,
+    "Other": 0.247,
+    "Unknown": 0.0141
+   }
+  },
+  "Russia": {
+   "coast": "Russia",
+   "n": 1290,
+   "own_group": "Russian",
+   "own_share": 0.3457,
+   "own_share_1816_1913": 0.2156,
+   "british_share": 0.3659,
+   "top": "British",
+   "top_share": 0.3659,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3659,
+   "shares": {
+    "British": 0.3659,
+    "German": 0.1364,
+    "French": 0.014,
+    "Norwegian": 0.0264,
+    "Dutch": 0.0186,
+    "Italian": 0.0078,
+    "Swedish": 0.0078,
+    "Russian": 0.3457,
+    "Other": 0.0566,
+    "Unknown": 0.0209
+   }
+  },
+  "Turkey": {
+   "coast": "Turkey",
+   "n": 1070,
+   "own_group": "Ottoman",
+   "own_share": 0.0654,
+   "own_share_1816_1913": 0.0297,
+   "british_share": 0.5935,
+   "top": "British",
+   "top_share": 0.5935,
+   "top_foreign": "British",
+   "top_foreign_share": 0.5935,
+   "shares": {
+    "British": 0.5935,
+    "German": 0.029,
+    "French": 0.0421,
+    "Norwegian": 0.0112,
+    "Dutch": 0.0121,
+    "Italian": 0.0439,
+    "Swedish": 0.0037,
+    "Russian": 0.0477,
+    "Other": 0.185,
+    "Unknown": 0.0318
+   }
+  },
+  "Greece": {
+   "coast": "Greece",
+   "n": 1022,
+   "own_group": "Greek",
+   "own_share": 0.275,
+   "own_share_1816_1913": 0.1182,
+   "british_share": 0.3307,
+   "top": "British",
+   "top_share": 0.3307,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3307,
+   "shares": {
+    "British": 0.3307,
+    "German": 0.1096,
+    "French": 0.0479,
+    "Norwegian": 0.0088,
+    "Dutch": 0.0068,
+    "Italian": 0.1252,
+    "Swedish": 0.0029,
+    "Russian": 0.0127,
+    "Other": 0.3434,
+    "Unknown": 0.0117
+   }
+  },
+  "Estonia": {
+   "coast": "Estonia",
+   "n": 699,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.3891,
+   "top": "British",
+   "top_share": 0.3891,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3891,
+   "shares": {
+    "British": 0.3891,
+    "German": 0.1059,
+    "French": 0.0215,
+    "Norwegian": 0.03,
+    "Dutch": 0.0343,
+    "Italian": 0.0014,
+    "Swedish": 0.0258,
+    "Russian": 0.3033,
+    "Other": 0.0486,
+    "Unknown": 0.0401
+   }
+  },
+  "Poland": {
+   "coast": "Poland",
+   "n": 565,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.285,
+   "top": "German",
+   "top_share": 0.5451,
+   "top_foreign": "German",
+   "top_foreign_share": 0.5451,
+   "shares": {
+    "British": 0.285,
+    "German": 0.5451,
+    "French": 0.0106,
+    "Norwegian": 0.0159,
+    "Dutch": 0.0212,
+    "Italian": 0.0035,
+    "Swedish": 0.0283,
+    "Russian": 0.0195,
+    "Other": 0.0496,
+    "Unknown": 0.0212
+   }
+  },
+  "Latvia": {
+   "coast": "Latvia",
+   "n": 521,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.4664,
+   "top": "British",
+   "top_share": 0.4664,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4664,
+   "shares": {
+    "British": 0.4664,
+    "German": 0.2035,
+    "French": 0.0154,
+    "Norwegian": 0.0365,
+    "Dutch": 0.0307,
+    "Italian": 0.0,
+    "Swedish": 0.0173,
+    "Russian": 0.1228,
+    "Other": 0.0672,
+    "Unknown": 0.0403
+   }
+  },
+  "Belgium": {
+   "coast": "Belgium",
+   "n": 490,
+   "own_group": "Belgian",
+   "own_share": 0.1245,
+   "own_share_1816_1913": 0.1697,
+   "british_share": 0.4755,
+   "top": "British",
+   "top_share": 0.4755,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4755,
+   "shares": {
+    "British": 0.4755,
+    "German": 0.1265,
+    "French": 0.051,
+    "Norwegian": 0.0143,
+    "Dutch": 0.0959,
+    "Italian": 0.0082,
+    "Swedish": 0.0102,
+    "Russian": 0.0061,
+    "Other": 0.2,
+    "Unknown": 0.0122
+   }
+  },
+  "Finland": {
+   "coast": "Finland",
+   "n": 433,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.418,
+   "top": "British",
+   "top_share": 0.418,
+   "top_foreign": "British",
+   "top_foreign_share": 0.418,
+   "shares": {
+    "British": 0.418,
+    "German": 0.0693,
+    "French": 0.0023,
+    "Norwegian": 0.03,
+    "Dutch": 0.03,
+    "Italian": 0.0,
+    "Swedish": 0.067,
+    "Russian": 0.2448,
+    "Other": 0.1062,
+    "Unknown": 0.0323
+   }
+  },
+  "Tunisia": {
+   "coast": "Tunisia",
+   "n": 421,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.2803,
+   "top": "Italian",
+   "top_share": 0.3468,
+   "top_foreign": "Italian",
+   "top_foreign_share": 0.3468,
+   "shares": {
+    "British": 0.2803,
+    "German": 0.1164,
+    "French": 0.1211,
+    "Norwegian": 0.0143,
+    "Dutch": 0.0071,
+    "Italian": 0.3468,
+    "Swedish": 0.0024,
+    "Russian": 0.0024,
+    "Other": 0.1069,
+    "Unknown": 0.0024
+   }
+  },
+  "Algeria": {
+   "coast": "Algeria",
+   "n": 398,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.4548,
+   "top": "British",
+   "top_share": 0.4548,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4548,
+   "shares": {
+    "British": 0.4548,
+    "German": 0.0427,
+    "French": 0.2261,
+    "Norwegian": 0.0251,
+    "Dutch": 0.0201,
+    "Italian": 0.0905,
+    "Swedish": 0.0,
+    "Russian": 0.005,
+    "Other": 0.1281,
+    "Unknown": 0.0075
+   }
+  },
+  "Romania": {
+   "coast": "Romania",
+   "n": 362,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.4365,
+   "top": "British",
+   "top_share": 0.4365,
+   "top_foreign": "British",
+   "top_foreign_share": 0.4365,
+   "shares": {
+    "British": 0.4365,
+    "German": 0.0967,
+    "French": 0.0249,
+    "Norwegian": 0.0083,
+    "Dutch": 0.0166,
+    "Italian": 0.0276,
+    "Swedish": 0.0028,
+    "Russian": 0.0884,
+    "Other": 0.2597,
+    "Unknown": 0.0387
+   }
+  },
+  "Libya": {
+   "coast": "Libya",
+   "n": 312,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.3654,
+   "top": "Italian",
+   "top_share": 0.4167,
+   "top_foreign": "Italian",
+   "top_foreign_share": 0.4167,
+   "shares": {
+    "British": 0.3654,
+    "German": 0.1122,
+    "French": 0.0128,
+    "Norwegian": 0.0128,
+    "Dutch": 0.0,
+    "Italian": 0.4167,
+    "Swedish": 0.0,
+    "Russian": 0.0,
+    "Other": 0.0769,
+    "Unknown": 0.0032
+   }
+  },
+  "Lithuania": {
+   "coast": "Lithuania",
+   "n": 284,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.5669,
+   "top": "British",
+   "top_share": 0.5669,
+   "top_foreign": "British",
+   "top_foreign_share": 0.5669,
+   "shares": {
+    "British": 0.5669,
+    "German": 0.2993,
+    "French": 0.0,
+    "Norwegian": 0.0141,
+    "Dutch": 0.0141,
+    "Italian": 0.0,
+    "Swedish": 0.0176,
+    "Russian": 0.0282,
+    "Other": 0.0423,
+    "Unknown": 0.0176
+   }
+  },
+  "Egypt": {
+   "coast": "Egypt",
+   "n": 279,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.6272,
+   "top": "British",
+   "top_share": 0.6272,
+   "top_foreign": "British",
+   "top_foreign_share": 0.6272,
+   "shares": {
+    "British": 0.6272,
+    "German": 0.0287,
+    "French": 0.0609,
+    "Norwegian": 0.0179,
+    "Dutch": 0.0108,
+    "Italian": 0.0681,
+    "Swedish": 0.0,
+    "Russian": 0.0072,
+    "Other": 0.1649,
+    "Unknown": 0.0143
+   }
+  },
+  "Ukraine": {
+   "coast": "Ukraine",
+   "n": 213,
+   "own_group": null,
+   "own_share": null,
+   "own_share_1816_1913": null,
+   "british_share": 0.3662,
+   "top": "British",
+   "top_share": 0.3662,
+   "top_foreign": "British",
+   "top_foreign_share": 0.3662,
+   "shares": {
+    "British": 0.3662,
+    "German": 0.1221,
+    "French": 0.0094,
+    "Norwegian": 0.0094,
+    "Dutch": 0.0047,
+    "Italian": 0.0282,
+    "Swedish": 0.0094,
+    "Russian": 0.338,
+    "Other": 0.0939,
+    "Unknown": 0.0188
+   }
+  }
+ },
+ "coastcount": 18,
+ "coastwins": 13,
+ "coast_not_british_top": [
+  "Germany",
+  "Italy",
+  "Norway",
+  "Poland",
+  "Tunisia"
+ ],
+ "series5": {
+  "start": [
+   1745,
+   1750,
+   1755,
+   1760,
+   1765,
+   1770,
+   1775,
+   1780,
+   1785,
+   1790,
+   1795,
+   1800,
+   1805,
+   1810,
+   1815,
+   1820,
+   1825,
+   1830,
+   1835,
+   1840,
+   1845,
+   1850,
+   1855,
+   1860,
+   1865,
+   1870,
+   1875,
+   1880,
+   1885,
+   1890,
+   1895,
+   1900,
+   1905,
+   1910,
+   1915,
+   1920,
+   1925,
+   1930,
+   1935,
+   1940,
+   1945
+  ],
+  "keys": [
+   "British",
+   "German",
+   "French",
+   "Norwegian",
+   "Dutch",
+   "Italian",
+   "Swedish",
+   "Russian",
+   "Other",
+   "Unknown"
+  ],
+  "counts": {
+   "British": [
+    118,
+    151,
+    176,
+    356,
+    311,
+    358,
+    247,
+    399,
+    543,
+    643,
+    632,
+    1405,
+    1666,
+    1855,
+    2156,
+    2481,
+    1927,
+    1939,
+    3655,
+    4313,
+    4671,
+    4429,
+    4281,
+    4612,
+    5141,
+    5127,
+    4979,
+    3543,
+    2615,
+    990,
+    78,
+    86,
+    61,
+    171,
+    2770,
+    420,
+    370,
+    286,
+    426,
+    2108,
+    119
+   ],
+   "German": [
+    4,
+    8,
+    2,
+    7,
+    9,
+    16,
+    8,
+    27,
+    31,
+    42,
+    56,
+    120,
+    50,
+    58,
+    144,
+    132,
+    117,
+    105,
+    217,
+    291,
+    379,
+    371,
+    264,
+    309,
+    234,
+    388,
+    442,
+    240,
+    164,
+    91,
+    4,
+    5,
+    4,
+    25,
+    281,
+    48,
+    85,
+    60,
+    90,
+    2116,
+    570
+   ],
+   "French": [
+    9,
+    11,
+    15,
+    12,
+    14,
+    23,
+    17,
+    26,
+    41,
+    52,
+    18,
+    52,
+    36,
+    43,
+    138,
+    162,
+    70,
+    106,
+    226,
+    278,
+    309,
+    354,
+    336,
+    314,
+    295,
+    411,
+    403,
+    253,
+    135,
+    66,
+    3,
+    12,
+    11,
+    13,
+    610,
+    101,
+    70,
+    41,
+    65,
+    189,
+    5
+   ],
+   "Norwegian": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    39,
+    37,
+    15,
+    30,
+    51,
+    80,
+    76,
+    98,
+    96,
+    141,
+    104,
+    259,
+    381,
+    299,
+    224,
+    86,
+    4,
+    6,
+    5,
+    23,
+    595,
+    46,
+    49,
+    39,
+    57,
+    336,
+    36
+   ],
+   "Dutch": [
+    9,
+    12,
+    2,
+    18,
+    21,
+    17,
+    10,
+    46,
+    30,
+    34,
+    15,
+    53,
+    15,
+    26,
+    174,
+    143,
+    87,
+    58,
+    119,
+    131,
+    113,
+    151,
+    144,
+    139,
+    97,
+    158,
+    184,
+    101,
+    46,
+    27,
+    1,
+    4,
+    1,
+    5,
+    102,
+    13,
+    21,
+    23,
+    29,
+    143,
+    8
+   ],
+   "Italian": [
+    1,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    8,
+    5,
+    0,
+    2,
+    0,
+    2,
+    1,
+    9,
+    5,
+    7,
+    8,
+    18,
+    21,
+    30,
+    39,
+    23,
+    61,
+    68,
+    173,
+    171,
+    77,
+    49,
+    16,
+    2,
+    1,
+    2,
+    6,
+    417,
+    40,
+    55,
+    38,
+    30,
+    707,
+    4
+   ],
+   "Swedish": [
+    0,
+    5,
+    4,
+    15,
+    13,
+    14,
+    5,
+    20,
+    16,
+    31,
+    19,
+    29,
+    47,
+    51,
+    73,
+    74,
+    35,
+    37,
+    37,
+    81,
+    77,
+    109,
+    89,
+    91,
+    65,
+    122,
+    183,
+    106,
+    53,
+    39,
+    0,
+    2,
+    1,
+    11,
+    137,
+    36,
+    41,
+    36,
+    43,
+    147,
+    5
+   ],
+   "Russian": [
+    1,
+    0,
+    5,
+    8,
+    9,
+    11,
+    13,
+    17,
+    20,
+    9,
+    24,
+    22,
+    36,
+    48,
+    47,
+    39,
+    31,
+    36,
+    42,
+    64,
+    80,
+    104,
+    58,
+    74,
+    46,
+    108,
+    131,
+    61,
+    55,
+    23,
+    5,
+    2,
+    9,
+    10,
+    166,
+    12,
+    7,
+    5,
+    6,
+    378,
+    10
+   ],
+   "Other": [
+    22,
+    18,
+    39,
+    62,
+    56,
+    64,
+    45,
+    87,
+    83,
+    90,
+    88,
+    169,
+    172,
+    135,
+    154,
+    141,
+    75,
+    103,
+    175,
+    235,
+    304,
+    353,
+    299,
+    331,
+    293,
+    461,
+    547,
+    302,
+    172,
+    106,
+    8,
+    23,
+    23,
+    30,
+    733,
+    209,
+    181,
+    206,
+    258,
+    799,
+    66
+   ],
+   "Unknown": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    2,
+    4,
+    3,
+    15,
+    13,
+    26,
+    46,
+    45,
+    55,
+    46,
+    12,
+    18,
+    18,
+    34,
+    36,
+    63,
+    66,
+    63,
+    97,
+    120,
+    167,
+    183,
+    187,
+    141,
+    46,
+    4,
+    2,
+    2,
+    4,
+    2,
+    10,
+    2,
+    1,
+    5,
+    5,
+    0
+   ]
+  }
+ },
+ "british_share_5y": {
+  "max": 0.8143,
+  "max_at": 1810,
+  "min": 0.1446,
+  "min_at": 1945
+ },
+ "wars": {
+  "ww1_n": 5887,
+  "ww2_n": 8207,
+  "ww1_norwegian": 0.1036,
+  "pre_norwegian": 0.0395,
+  "ww1_british": 0.4851,
+  "ww1_french": 0.1043,
+  "ww1_italian": 0.0713,
+  "ww2_german": 0.3328,
+  "ww2_british": 0.2962,
+  "ww2_italian": 0.0876,
+  "ww2_russian": 0.0475,
+  "ww2_german_naval": 0.714,
+  "ww2_naval": 0.4603,
+  "ww1_naval": 0.1614,
+  "ww1_list_coords": 0.5167,
+  "ww2_list_coords": 0.357,
+  "ww2_german_top_sea": "Mediterranean",
+  "ww2_german_seas": {
+   "Mediterranean": 545,
+   "North Sea": 505,
+   "Baltic": 501,
+   "Norwegian Sea and Arctic": 288,
+   "Atlantic": 252,
+   "English Channel": 190,
+   "Bay of Biscay": 189,
+   "Black Sea": 119,
+   "Kattegat and Skagerrak": 106,
+   "Irish Sea and approaches": 36
+  },
+  "german_off_norway_n": 529,
+  "german_off_norway_ww2_share": 0.7864,
+  "german_norwegian_sea_ww2_share": 0.8834
+ },
+ "colours": {
+  "British": "#2a78d6",
+  "German": "#eb6834",
+  "French": "#1baf7a",
+  "Norwegian": "#eda100",
+  "Dutch": "#e87ba4",
+  "Italian": "#008300",
+  "Swedish": "#6250d6",
+  "Russian": "#e34948",
+  "Other": "#8a8f98",
+  "Unknown": "#c9ccd1"
+ },
+ "colours_dark": {
+  "British": "#3987e5",
+  "German": "#d95926",
+  "French": "#199e70",
+  "Norwegian": "#c98500",
+  "Dutch": "#d55181",
+  "Italian": "#008300",
+  "Swedish": "#9085e9",
+  "Russian": "#e66767",
+  "Other": "#8a8f98",
+  "Unknown": "#55595f"
+ },
+ "show": [
+  "British",
+  "German",
+  "French",
+  "Norwegian",
+  "Dutch",
+  "Italian",
+  "Swedish",
+  "Russian",
+  "Other",
+  "Unknown"
+ ],
+ "eras_def": [
+  {
+   "era": "1744 to 1792",
+   "label": "Age of sail",
+   "from": 1744,
+   "to": 1792
+  },
+  {
+   "era": "1793 to 1815",
+   "label": "French wars",
+   "from": 1793,
+   "to": 1815
+  },
+  {
+   "era": "1816 to 1859",
+   "label": "Peace and sail",
+   "from": 1816,
+   "to": 1859
+  },
+  {
+   "era": "1860 to 1913",
+   "label": "Steam age",
+   "from": 1860,
+   "to": 1913
+  },
+  {
+   "era": "1914 to 1918",
+   "label": "First World War",
+   "from": 1914,
+   "to": 1918
+  },
+  {
+   "era": "1919 to 1938",
+   "label": "Between the wars",
+   "from": 1919,
+   "to": 1938
+  },
+  {
+   "era": "1939 to 1945",
+   "label": "Second World War",
+   "from": 1939,
+   "to": 1945
+  }
+ ]
+}
