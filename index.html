@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Whose Ships Sank Where?</title>
+<meta name="description" content="106,550 shipwrecks in Europe's seas, 1744 to 1945, from Wikipedia's lists: whose flag they flew and where they were lost.">
+<meta property="og:title" content="Whose ships sank where? Two centuries of wrecks in Europe's seas">
+<meta property="og:description" content="106,550 wrecks placed from Wikipedia's shipwreck lists: the flags lost in each sea, off each coast, from the age of sail to the world wars.">
+<meta property="og:image" content="https://tristan-hotham.github.io/wrecks-of-europe/header.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Chart paper and navy ink. Teal = the sea and the interface. Flag colours: validated categorical slots. */
+:root{
+  --bg:#F4EFE3; --panel:#EAE3D1; --fg:#14284B; --muted:#5E6676; --rule:#D6CEBA; --card:#FBF8F0; --border:#C5BBA3;
+  --hot:#0E6E73; --sea:#DCE6E4; --gold:#9A6A00;
+  --f-British:#2a78d6; --f-German:#eb6834; --f-French:#1baf7a; --f-Norwegian:#eda100; --f-Dutch:#e87ba4;
+  --f-Italian:#008300; --f-Swedish:#6250d6; --f-Russian:#e34948; --f-Other:#8a8f98; --f-Unknown:#c9ccd1;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D1B24; --panel:#132632; --fg:#E7ECEF; --muted:#9AA8B2; --rule:#26404E; --card:#112330; --border:#33515F;
+  --hot:#46B3B5; --sea:#0B1820; --gold:#D6A136;
+  --f-British:#3987e5; --f-German:#d95926; --f-French:#199e70; --f-Norwegian:#c98500; --f-Dutch:#d55181;
+  --f-Italian:#008300; --f-Swedish:#9085e9; --f-Russian:#e66767; --f-Other:#8a8f98; --f-Unknown:#55595f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1B24; --panel:#132632; --fg:#E7ECEF; --muted:#9AA8B2; --rule:#26404E; --card:#112330; --border:#33515F;
+  --hot:#46B3B5; --sea:#0B1820; --gold:#D6A136;
+  --f-British:#3987e5; --f-German:#d95926; --f-French:#199e70; --f-Norwegian:#c98500; --f-Dutch:#d55181;
+  --f-Italian:#008300; --f-Swedish:#9085e9; --f-Russian:#e66767; --f-Other:#8a8f98; --f-Unknown:#55595f; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:680px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1080px,calc(100vw - 32px));margin-left:calc((100% - min(1080px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--hot);color:#fff;padding:5px 8px;font-weight:500}
+.kicker a{text-decoration:none}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(50px,12.5vw,104px)/.88 var(--display);letter-spacing:-.02em;margin:0;text-wrap:balance;font-variation-settings:"SOFT" 50}
+h1 em{font-style:normal;color:var(--hot)}
+.mark{width:clamp(92px,21vw,176px);height:auto;display:block}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:44ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:52px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--hot)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(24px,5vw,34px)/1 var(--display);color:var(--fg);overflow-wrap:anywhere}
+.stats b.h{color:var(--hot)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:280px;z-index:1000;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.tip i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:0}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:focus-visible,select:focus-visible{outline:2px solid var(--hot);outline-offset:2px}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.seg .btn{border:0;border-radius:0;border-right:1px solid var(--border)}
+.seg .btn:last-child{border-right:0}
+select{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;min-height:36px;max-width:100%}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:820px){.mapgrid{grid-template-columns:1fr}}
+#map{height:clamp(440px,74vh,660px);border:1px solid var(--border);background:var(--sea);border-radius:2px;z-index:0}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.side{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--hot);padding:12px 14px;font:400 13px/1.5 var(--mono)}
+.card.empty{border-left-color:var(--border);color:var(--muted)}
+.card b.t{font:600 18px/1.2 var(--display);display:block;margin-bottom:6px}
+.card ul{margin:6px 0 0;padding-left:0;list-style:none;max-height:260px;overflow:auto;border-top:1px solid var(--rule)}
+.card li{padding:5px 0;border-bottom:1px solid var(--rule)}
+.card li i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px}
+.bars{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:3px 8px;align-items:center;margin:8px 0}
+.bars span.bar{height:10px;border-radius:0 3px 3px 0;display:block}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--hot);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+table.t{width:100%;border-collapse:collapse;font:400 13px/1.35 var(--mono)}
+table.t th{text-align:left;font-weight:500;color:var(--muted);border-bottom:2px solid var(--fg);padding:6px 8px 6px 0}
+table.t td{border-bottom:1px solid var(--rule);padding:7px 8px 7px 0;vertical-align:top}
+table.t td.num,table.t th.num{text-align:right}
+table.t td i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px}
+.tablewrap{overflow-x:auto}
+.multi{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px 10px}
+@media (max-width:700px){.multi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.multi .m{text-align:center;font:400 12px/1.35 var(--mono)}
+.multi .m b{display:block;font:600 15px/1.2 var(--display);margin-top:4px}
+.multi .m span{color:var(--muted)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+ul.lim{padding-left:20px}ul.lim li{margin-bottom:10px}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1001}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--sea)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)!important;font-size:10px}
+.leaflet-control-attribution a{color:var(--fg)!important}
+.leaflet-bar a{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+.leaflet-bar a:hover{background:var(--panel)}
+.leaflet-bar{border:1px solid var(--border)!important}
+.donut{cursor:pointer}
+.donut svg{display:block;overflow:visible}
+.donut text{font:500 10px var(--mono);fill:var(--fg);paint-order:stroke;stroke:var(--card);stroke-width:3px}
+.donut.sel circle.ring{stroke:var(--fg);stroke-width:2.5}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>Maritime history × maps</span><span>Europe's seas, 1744 to 1945</span><a href="https://blog.tristanhotham.com/">Blog home</a></div>
+<header class="hero">
+  <h1>Whose ships <em>sank</em> where?</h1>
+  <svg class="mark" viewBox="-100 -100 200 200" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">Two centuries of shipwrecks in Europe's seas, from Wikipedia's lists of ships lost: 106,550 wrecks placed on the map, each with the flag she sailed under. Who was lost in which sea, and off whose coast?</p>
+</header>
+<div class="byline">Dr Tristan Hotham, Independent researcher · October 2026 · Data: Wikipedia "List of shipwrecks" pages, Wikidata, Natural Earth</div>
+
+<div class="stats">
+  <div><b class="h">106,550</b><span>wrecks placed in Europe's seas, 1744 to 1945</span></div>
+  <div><b>68%</b><span>flew the British flag</span></div>
+  <div><b>12%</b><span>of wrecks in the English Channel were French, the next flag after British</span></div>
+  <div><b class="h">33%</b><span>of Second World War losses were German, the largest flag</span></div>
+</div>
+
+<p class="lede">Wikipedia keeps a remarkable list. For almost every year from the 1740s to 1945, and for every month from 1820, volunteer editors have written up the ships that were wrecked, foundered, burnt, captured or sunk, mostly from the shipping columns of Lloyd's List and the newspapers. Each entry gives the ship's name, the flag she sailed under, and a line on what happened and where.</p>
+<p>I read all 236,326 entries, took the place each one names as the place of loss, and kept the 106,550 that put the wreck in a European sea: from the Arctic coast of Norway to the Black Sea. That lets me ask a simple question with a picture for an answer. In each stretch of sea, whose ships were lost?</p>
+<p>The short answer is: the British, almost everywhere, until the twentieth century. But the record is a British one, built from British sources, and the more interesting story is in the exceptions: the seas and coasts, and the decades, where other flags take over.</p>
+
+<h2><span class="n">01 · The map</span>Every sea, every flag</h2>
+<p>Each donut gathers the wrecks in one square of the map grid, and its slices are the flags. Zoom in and the squares get smaller. Pick an era to see how the mix changes, or pick one flag to see only that nation's losses. Tap a donut for the ships inside it.</p>
+<div class="figure bleed">
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Era" id="eras"></div>
+    <select id="flagsel" aria-label="Flag"></select>
+  </div>
+  <div class="mapgrid">
+    <div>
+      <div id="map" role="application" aria-label="Map of European seas with a donut chart of flags for each grid square"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="side">
+      <div class="card empty" id="card">Tap a donut to see which flags were lost in that square, and the ships themselves.</div>
+      <div class="src" id="mapnote"></div>
+    </div>
+  </div>
+</div>
+
+<h2><span class="n">02 · Sea by sea</span>The British seas, and the mixed ones</h2>
+<p>Group the wrecks by sea and the pattern is plain. In the Irish Sea and its approaches, 89% of the 22,329 wrecks were British. In the North Sea it was 74%, and in the English Channel 70%. These were the home waters of the world's largest merchant fleet, and the waters Lloyd's List watched most closely.</p>
+<p>Further out, the mix opens up. British ships were still the largest group in the Baltic (41%), the Mediterranean (39%) and the Black Sea (36%), but alongside German ships in the Baltic (22%), Italian ships in the Mediterranean (19%) and Russian ships in the Black Sea (26%). Two seas break the rule outright. In the Bay of Biscay the French flag leads, with 38% against 30% British. In the Norwegian Sea and the Arctic, German ships lead with 31%, and 88% of those German wrecks date from the Second World War.</p>
+<div class="figure">
+  <div class="fig-h">Flags of the ships lost, by sea</div>
+  <div class="fig-sub">Share of wrecks in each sea under each flag. The number is the wrecks placed in that sea. Follows the era chosen above the map: <b id="seaEra">all years</b>.</div>
+  <div class="multi" id="multi"></div>
+  <div class="src">Seas are the nearest Natural Earth marine area to each wreck, grouped into ten. "Other" includes 1,533 Danish, 1,577 American and 952 Spanish wrecks among others.</div>
+</div>
+<p>One way to put a number on the mix is the "effective number of flags": the number of equally common flags that would give the same chance that two wrecks picked at random share a flag. The Irish Sea scores 1.24, close to a single flag. The Kattegat and Skagerrak, the narrow seas between Denmark, Norway and Sweden through which all Baltic trade passed, score 4.63, the most cosmopolitan of the ten, with the Mediterranean close behind on 4.55.</p>
+<div class="figure">
+  <div class="tablewrap"><table class="t" id="seat"></table></div>
+  <div class="src">Effective number of flags: one divided by the sum of squared shares, leaving out wrecks of unknown flag. Top place: the place named most often for wrecks in that sea.</div>
+</div>
+
+<h2><span class="n">03 · Over time</span>From the age of sail to the world wars</h2>
+<p>The British share was highest during the long wars with France: 77% of placed wrecks from 1793 to 1815, and 81% in the five years from 1810. It stayed above 70% through most of the nineteenth century. Then it fell. In the First World War it was 49%, between the wars 41%, and in the Second World War 30%.</p>
+<div class="figure">
+  <div class="controls"><div class="seg" role="group" aria-label="Scale"><button class="btn" data-mode="share" aria-pressed="true">Share</button><button class="btn" data-mode="count" aria-pressed="false">Number</button></div></div>
+  <div class="fig-h">Wrecks placed in Europe's seas, by flag, five-year periods</div>
+  <div class="fig-sub">Share of each period's wrecks, or the number. Hover or tap for the values.</div>
+  <div class="chart" id="area"></div>
+  <div class="src">The number view is mostly a record of the record: Wikipedia's monthly lists begin in 1820 and are thickest for the nineteenth century, thin between the wars, and full again in both world wars.</div>
+</div>
+<p>The wars rearrange the picture. In the First World War, German submarines sank neutral ships as well as Allied ones, and Norway, neutral but with one of the world's largest merchant fleets, lost heavily: Norwegian ships were 10% of placed wrecks in 1914 to 1918, against 4% in the half century before. French (10%) and Italian (7%) shares rose too.</p>
+<p>In the Second World War the largest flag is German, at 33%: minesweepers, patrol boats, U-boats, transports and merchant ships lost from the Arctic to the Black Sea, 71% of them under a naval ensign. The most common sea for those German losses was the Mediterranean (545), then the North Sea (505) and the Baltic (501).</p>
+<div class="figure">
+  <div class="fig-h">Flags by era</div>
+  <div class="fig-sub">Share of wrecks placed in Europe's seas in each era, and the number of wrecks.</div>
+  <div class="chart" id="erabars"></div>
+</div>
+
+<h2><span class="n">04 · Off whose coast?</span>Home waters and foreign shores</h2>
+<p>Most of the wrecks lie off Britain and Ireland: 65% of all those placed. Off the coasts of other countries, the British flag is still the most common on 13 of the 18 coasts with at least 400 wrecks. Off France, 39% of wrecks were British and 32% French. Off Spain, 49% were British and 12% Spanish.</p>
+<p>The exceptions are telling. Off Germany, German ships lead (45%), and off Italy, Italian ships (38%). Off Norway the Norwegian flag leads (32%) but German ships are close behind (30%), 79% of them lost in the Second World War. German ships also lead off Poland, the old Prussian Baltic coast (55%), and Italian ships off Tunisia (35%).</p>
+<div class="figure">
+  <div class="fig-h">Flags of wrecks off each coast</div>
+  <div class="fig-sub">Coast = the modern country whose shore is nearest to the wreck (Natural Earth). Coasts with at least 400 placed wrecks, all years. The figure on the right is the share flying that country's own flag.</div>
+  <div class="chart" id="coasts"></div>
+  <div class="src">Own flag: British for the United Kingdom (with the Isle of Man and the Channel Islands), Ottoman or Turkish for Turkey, and so on. Ireland, Estonia, Latvia, Poland and Finland have no own-flag figure because their ships sailed under other flags for much of the period.</div>
+</div>
+
+<h2><span class="n">05 · Limits</span>Whose record is this?</h2>
+<ul class="lim">
+<li><b>It is a British record.</b> The lists were built mostly from Lloyd's List and British newspapers. They saw British ships, British coasts and the ports British ships used far better than a Swedish schooner lost in the Gulf of Bothnia or a Greek caique in the Aegean. The British share here is a share of the record, not of all the ships lost. The pattern across seas and over time is more trustworthy than any single share.</li>
+<li><b>Coverage changes.</b> Some eras are written up in much more detail than others. The monthly lists from 1820 are far fuller than the yearly lists before them, the years 1919 to 1938 are thin (161.2 wrecks placed a year, against 782.5 from 1816 to 1913), and the world wars, drawing on naval loss records, are full. I compare shares, not counts, for this reason.</li>
+<li><b>Place is the place named.</b> I put each wreck at the first specific place its description links (a sandbank, headland, port or island), not at the exact spot. Where the list gives coordinates, I used those. A wreck "40 miles off" a headland sits on the headland; one more than 60 nautical miles off is left out. This is fine for squares of a degree or so, not for finding a wreck.</li>
+<li><b>Flags are flags.</b> A ship's flag is where she was registered, not where her crew or owners came from. I merged states across time (Prussia and the Hanseatic cities into German, Sardinia and the Two Sicilies into Italian, Denmark-Norway into Danish), and the merge list is in the code.</li>
+<li><b>Lost, not always sunk.</b> The lists include ships driven ashore and later refloated, captured, burnt or damaged. I kept every entry, as the lists do.</li>
+</ul>
+
+<div class="note" id="method">
+  <h3>How I did this</h3>
+  <p><b>The lists.</b> The wikitext of 1,251 Wikipedia pages titled "List of shipwrecks in [year]" or "[month year]", 1700 to 1945 (49 were redirects; the first entries are from 1744). I parsed each entry template into ship, flag, date and description, extending the parser from my study <a href="https://tristan-hotham.github.io/did-lighthouses-work/">Did Lighthouses Work?</a>. That gives 236,326 entries.</p>
+  <p><b>Flags.</b> The flag cell names the state, usually through a flag template. I grouped 232 different flag names into 24 groups (merges listed in the code and in <code>flag_mapping.csv</code>). 1,545 wrecks in Europe have no known flag.</p>
+  <p><b>Place.</b> In each description I cut away the voyage ("on a voyage from Riga to Hull"), later events (refloated, towed in, rescued by) and other ships named in brackets, and kept the links in what was left. The position is, in order: coordinates given in the list (6,662 wrecks); the Wikidata wreck position of the ship's own article where it agrees with the text (288); otherwise the first linked place with coordinates that is not a whole sea, country or large region (99,600). Coordinates for linked places come from the Wikipedia API. 82,194 entries could not be placed, often because they name no linked place or only a sea or a country.</p>
+  <p><b>European seas.</b> Positions between 30° and 72° N and 25° W and 42° E, leaving out the Atlantic south of 36° N, the Suez Canal, lakes, and places more than 50 km inland (661 entries); river ports such as London and Hamburg stay in. Each wreck's sea is the nearest Natural Earth marine area, grouped into ten seas; its coast is the nearest country in Natural Earth.</p>
+  <p><b>Checks.</b> I read 100 placed entries drawn at random against the place chosen: 92 were right, 5 were placed at the centre of the right county (20 to 50 km off), and 3 were wrong. Two of the three were ships lost far out at sea that the far-offshore rule now leaves out; the third, a link to the wrong Llanelly, is now fixed. Where a description names a sea, it matches the sea area I assigned in 92% of 23,191 cases; most of the rest are the western Channel or the Celtic Sea called "the Atlantic". Where the list also gives coordinates, mostly for wartime sinkings out at sea, the median distance to the named place is 53.9 km, a reminder that the named place is a reference point for losses offshore. Around Britain, my counts per one-degree square correlate with the 29,348 wreck records for the United Kingdom in Wikidata (Spearman 0.36), a modest match for two very different records.</p>
+</div>
+<div class="cta">
+  <a class="p" href="https://github.com/Tristan-Hotham/wrecks-of-europe">Data and code</a>
+  <a href="https://doi.org/10.5281/zenodo.23677833">Paper (Zenodo)</a>
+  <a href="https://tristan-hotham.github.io/did-lighthouses-work/">Did Lighthouses Work?</a>
+  <a href="https://blog.tristanhotham.com/">Blog home</a>
+</div>
+
+<footer>
+  <p>Dr Tristan Hotham, researcher on social media, campaigns and politics. Independent researcher. Cite as: Hotham, T. (2026) Whose Ships Sank Where? Flags of shipwrecks in Europe's seas, 1744 to 1945. Zenodo. <a href="https://doi.org/10.5281/zenodo.23677833">https://doi.org/10.5281/zenodo.23677833</a></p>
+  <p>Wreck records: Wikipedia contributors, "List of shipwrecks" pages, CC BY-SA 4.0, largely compiled from Lloyd's List and contemporary newspapers. Coordinates of linked places: Wikipedia (via the MediaWiki API). Wreck positions: Wikidata, CC0. Sea areas and coastlines: Natural Earth (public domain). Base map tiles © Esri, HERE, Garmin, © OpenStreetMap contributors, and the GIS user community. Map library: Leaflet.</p>
+  <p>The derived data and text on this page are released under CC BY-SA 4.0, because the Wikipedia lists are. Code is MIT.</p>
+  <p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const R = {"show":["British","German","French","Norwegian","Dutch","Italian","Swedish","Russian","Other","Unknown"],"overall":{"n":106550,"shares":{"British":0.6817,"German":0.0715,"French":0.0502,"Norwegian":0.0302,"Dutch":0.0238,"Italian":0.0198,"Swedish":0.0188,"Russian":0.0172,"Other":0.0724,"Unknown":0.0145},"groups":{"British":72639,"German":7616,"French":5345,"Norwegian":3218,"Dutch":2532,"Italian":2106,"Swedish":1999,"Russian":1833,"American":1577,"Unknown":1545,"Danish":1533,"Spanish":952,"Greek":826,"Belgian":561,"Other":549,"Portuguese":523,"Irish":360,"Austrian":341,"Ottoman":179,"Finnish":139,"Baltic states":74,"Romanian":49,"Yugoslav":28,"Polish":26},"british_share":0.6817,"n_groups_seen":24,"n_flag_texts":232,"british_share_off_other_coasts":0.3963,"n_off_other_coasts":37495,"share_off_britain_ireland":0.6481},"eras_def":[{"era":"1744 to 1792","label":"Age of sail","from":1744,"to":1792},{"era":"1793 to 1815","label":"French wars","from":1793,"to":1815},{"era":"1816 to 1859","label":"Peace and sail","from":1816,"to":1859},{"era":"1860 to 1913","label":"Steam age","from":1860,"to":1913},{"era":"1914 to 1918","label":"First World War","from":1914,"to":1918},{"era":"1919 to 1938","label":"Between the wars","from":1919,"to":1938},{"era":"1939 to 1945","label":"Second World War","from":1939,"to":1945}],"eras":[{"era":"1744 to 1792","label":"Age of sail","n":4404,"per_year":89.9,"shares":{"British":0.6982,"German":0.032,"French":0.0475,"Norwegian":0.0,"Dutch":0.0429,"Italian":0.0054,"Swedish":0.025,"Russian":0.0204,"Other":0.1203,"Unknown":0.0082},"naval_share":0.0316,"effective_flags":1.97,"top_sea":"North Sea","seas":{"North Sea":1353,"Irish Sea and approaches":881,"English Channel":877,"Atlantic":525,"Baltic":310,"Mediterranean":169,"Bay of Biscay":148,"Kattegat and Skagerrak":100,"Black Sea":28,"Norwegian Sea and Arctic":13}},{"era":"1793 to 1815","label":"French wars","n":8142,"per_year":354.0,"shares":{"British":0.7741,"German":0.0407,"French":0.0233,"Norwegian":0.0018,"Dutch":0.0197,"Italian":0.0009,"Swedish":0.022,"Russian":0.0179,"Other":0.077,"Unknown":0.0226},"naval_share":0.0526,"effective_flags":1.58,"top_sea":"North Sea","seas":{"North Sea":3112,"Irish Sea and approaches":1631,"English Channel":1337,"Atlantic":815,"Baltic":587,"Mediterranean":233,"Bay of Biscay":185,"Kattegat and Skagerrak":184,"Norwegian Sea and Arctic":39,"Black Sea":19}},{"era":"1816 to 1859","label":"Peace and sail","n":38288,"per_year":870.2,"shares":{"British":0.7668,"German":0.0519,"French":0.0509,"Norwegian":0.0134,"Dutch":0.0282,"Italian":0.0041,"Swedish":0.0155,"Russian":0.0128,"Other":0.0473,"Unknown":0.0091},"naval_share":0.012,"effective_flags":1.65,"top_sea":"North Sea","seas":{"North Sea":15681,"Irish Sea and approaches":9082,"English Channel":4060,"Atlantic":2923,"Baltic":2630,"Mediterranean":1819,"Kattegat and Skagerrak":1007,"Bay of Biscay":632,"Black Sea":324,"Norwegian Sea and Arctic":130}},{"era":"1860 to 1913","label":"Steam age","n":38398,"per_year":711.1,"shares":{"British":0.7106,"German":0.0491,"French":0.0497,"Norwegian":0.0395,"Dutch":0.0198,"Italian":0.0162,"Swedish":0.0173,"Russian":0.0135,"Other":0.0596,"Unknown":0.0248},"naval_share":0.0088,"effective_flags":1.85,"top_sea":"North Sea","seas":{"North Sea":15031,"Irish Sea and approaches":9300,"English Channel":4444,"Baltic":2572,"Atlantic":2483,"Mediterranean":1950,"Kattegat and Skagerrak":1127,"Bay of Biscay":793,"Black Sea":564,"Norwegian Sea and Arctic":134}},{"era":"1914 to 1918","label":"First World War","n":5887,"per_year":1177.4,"shares":{"British":0.4851,"German":0.0437,"French":0.1043,"Norwegian":0.1036,"Dutch":0.018,"Italian":0.0713,"Swedish":0.0248,"Russian":0.0267,"Other":0.1221,"Unknown":0.0003},"naval_share":0.1614,"effective_flags":3.73,"top_sea":"North Sea","seas":{"North Sea":1363,"Mediterranean":1309,"English Channel":1103,"Atlantic":965,"Irish Sea and approaches":548,"Bay of Biscay":300,"Baltic":122,"Norwegian Sea and Arctic":103,"Black Sea":48,"Kattegat and Skagerrak":26}},{"era":"1919 to 1938","label":"Between the wars","n":3224,"per_year":161.2,"shares":{"British":0.4119,"German":0.0872,"French":0.0785,"Norwegian":0.0499,"Dutch":0.022,"Italian":0.0481,"Swedish":0.0416,"Russian":0.0136,"Other":0.2422,"Unknown":0.005},"naval_share":0.0645,"effective_flags":4.98,"top_sea":"North Sea","seas":{"North Sea":816,"Irish Sea and approaches":477,"Mediterranean":471,"English Channel":379,"Baltic":341,"Atlantic":338,"Bay of Biscay":138,"Black Sea":111,"Kattegat and Skagerrak":86,"Norwegian Sea and Arctic":67}},{"era":"1939 to 1945","label":"Second World War","n":8207,"per_year":1172.4,"shares":{"British":0.2962,"German":0.3328,"French":0.0272,"Norwegian":0.0492,"Dutch":0.0202,"Italian":0.0876,"Swedish":0.0213,"Russian":0.0475,"Other":0.1171,"Unknown":0.0009},"naval_share":0.4603,"effective_flags":4.66,"top_sea":"Mediterranean","seas":{"Mediterranean":2067,"North Sea":1705,"Atlantic":1177,"Baltic":871,"English Channel":642,"Norwegian Sea and Arctic":552,"Irish Sea and approaches":410,"Black Sea":337,"Bay of Biscay":270,"Kattegat and Skagerrak":176}}],"seas":[{"sea":"North Sea","n":39061,"shares":{"British":0.7408,"German":0.0727,"French":0.0279,"Norwegian":0.0335,"Dutch":0.0384,"Italian":0.0045,"Swedish":0.0177,"Russian":0.0067,"Other":0.0436,"Unknown":0.0142},"groups":{"British":28937,"German":2841,"Dutch":1499,"Norwegian":1308,"French":1088,"Swedish":693,"Danish":595,"Unknown":553,"American":401,"Belgian":285,"Russian":261,"Italian":177,"Spanish":124,"Other":78,"Portuguese":59,"Austrian":47,"Greek":40,"Irish":27,"Finnish":25,"Baltic states":10,"Ottoman":7,"Polish":5,"Yugoslav":1},"top":"British","top_share":0.7408,"second":"German","second_share":0.0727,"british_share":0.7408,"effective_flags":1.74,"top_places":[["Essex",1602],["River Thames",1136],["Norfolk",1118],["Goodwin Sands",1115],["Suffolk",1065]],"lat":53.14,"lon":0.7},{"sea":"English Channel","n":12842,"shares":{"British":0.6968,"German":0.0431,"French":0.1171,"Norwegian":0.025,"Dutch":0.0238,"Italian":0.0063,"Swedish":0.0095,"Russian":0.0044,"Other":0.061,"Unknown":0.013},"groups":{"British":8948,"French":1504,"German":554,"Norwegian":321,"Dutch":306,"American":249,"Unknown":167,"Swedish":122,"Danish":113,"Spanish":99,"Italian":81,"Belgian":79,"Other":67,"Portuguese":65,"Russian":56,"Greek":44,"Irish":28,"Austrian":24,"Ottoman":5,"Baltic states":4,"Polish":3,"Finnish":2,"Romanian":1},"top":"British","top_share":0.6968,"second":"French","second_share":0.1171,"british_share":0.6968,"effective_flags":1.94,"top_places":[["Dungeness",509],["Isle of Wight",437],["Dover",377],["Plymouth",348],["Le Havre",326]],"lat":50.55,"lon":-1.45},{"sea":"Irish Sea and approaches","n":22329,"shares":{"British":0.8871,"German":0.0104,"French":0.0208,"Norwegian":0.0101,"Dutch":0.0053,"Italian":0.0048,"Swedish":0.0034,"Russian":0.002,"Other":0.0456,"Unknown":0.0105},"groups":{"British":19808,"French":464,"American":355,"Unknown":234,"German":232,"Norwegian":226,"Irish":164,"Dutch":119,"Other":113,"Italian":108,"Spanish":101,"Swedish":75,"Portuguese":71,"Austrian":59,"Greek":52,"Danish":51,"Russian":44,"Belgian":39,"Finnish":6,"Ottoman":4,"Baltic states":3,"Yugoslav":1},"top":"British","top_share":0.8871,"second":"French","second_share":0.0208,"british_share":0.8871,"effective_flags":1.24,"top_places":[["Liverpool Bay",956],["Liverpool",609],["Holyhead",445],["Milford Haven",318],["River Clyde",306]],"lat":53.41,"lon":-4.66},{"sea":"Atlantic","n":9226,"shares":{"British":0.6829,"German":0.0492,"French":0.0392,"Norwegian":0.0373,"Dutch":0.0133,"Italian":0.0131,"Swedish":0.0105,"Russian":0.0078,"Other":0.134,"Unknown":0.0127},"groups":{"British":6300,"German":454,"French":362,"Norwegian":344,"Portuguese":252,"Spanish":230,"American":206,"Greek":129,"Dutch":123,"Italian":121,"Unknown":117,"Irish":109,"Danish":102,"Swedish":97,"Other":93,"Russian":72,"Austrian":45,"Belgian":40,"Finnish":11,"Baltic states":10,"Ottoman":7,"Yugoslav":2},"top":"British","top_share":0.6829,"second":"German","second_share":0.0492,"british_share":0.6829,"effective_flags":2.05,"top_places":[["Isles of Scilly",481],["Lisbon",222],["County Cork",221],["Porto",200],["Cape Finisterre",193]],"lat":51.83,"lon":-8.61},{"sea":"Bay of Biscay","n":2466,"shares":{"British":0.296,"German":0.0957,"French":0.3783,"Norwegian":0.0385,"Dutch":0.017,"Italian":0.0118,"Swedish":0.0057,"Russian":0.0028,"Other":0.1411,"Unknown":0.013},"groups":{"French":933,"British":730,"German":236,"Spanish":157,"Norwegian":95,"American":61,"Dutch":42,"Unknown":32,"Italian":29,"Belgian":26,"Greek":22,"Danish":21,"Portuguese":18,"Other":17,"Irish":14,"Swedish":14,"Russian":7,"Austrian":7,"Ottoman":2,"Finnish":2,"Baltic states":1},"top":"French","top_share":0.3783,"second":"British","second_share":0.296,"british_share":0.296,"effective_flags":3.94,"top_places":[["Gironde estuary",154],["Brest, France",151],["Bilbao",117],["Finistère",94],["Bordeaux",88]],"lat":46.2,"lon":-2.35},{"sea":"Kattegat and Skagerrak","n":2706,"shares":{"British":0.3618,"German":0.1955,"French":0.0155,"Norwegian":0.105,"Dutch":0.034,"Italian":0.0015,"Swedish":0.1186,"Russian":0.031,"Other":0.1135,"Unknown":0.0237},"groups":{"British":979,"German":529,"Swedish":321,"Norwegian":284,"Danish":258,"Dutch":92,"Russian":84,"Unknown":64,"French":42,"American":19,"Belgian":8,"Portuguese":7,"Finnish":6,"Italian":4,"Spanish":3,"Other":2,"Baltic states":2,"Irish":1,"Greek":1},"top":"British","top_share":0.3618,"second":"German","second_share":0.1955,"british_share":0.3618,"effective_flags":4.63,"top_places":[["Skagen",575],["Læsø",384],["Anholt (island)",189],["Gothenburg",157],["Frederikshavn",109]],"lat":57.71,"lon":10.74},{"sea":"Baltic","n":7433,"shares":{"British":0.4097,"German":0.2201,"French":0.013,"Norwegian":0.0375,"Dutch":0.0308,"Italian":0.0017,"Swedish":0.0813,"Russian":0.102,"Other":0.0774,"Unknown":0.0265},"groups":{"British":3045,"German":1636,"Russian":758,"Swedish":604,"Danish":320,"Norwegian":279,"Dutch":229,"Unknown":197,"French":97,"Finnish":83,"American":41,"Baltic states":41,"Belgian":25,"Portuguese":19,"Polish":15,"Italian":13,"Irish":9,"Greek":8,"Spanish":7,"Other":5,"Austrian":2},"top":"British","top_share":0.4097,"second":"German","second_share":0.2201,"british_share":0.4097,"effective_flags":3.98,"top_places":[["Helsingør",322],["Öland",297],["Bornholm",288],["Gotland",286],["Klaipėda",255]],"lat":56.04,"lon":17.08},{"sea":"Norwegian Sea and Arctic","n":1038,"shares":{"British":0.2322,"German":0.3141,"French":0.0087,"Norwegian":0.2303,"Dutch":0.0145,"Italian":0.001,"Swedish":0.025,"Russian":0.0963,"Other":0.0665,"Unknown":0.0116},"groups":{"German":326,"British":241,"Norwegian":239,"Russian":100,"Danish":28,"Swedish":26,"American":19,"Dutch":15,"Unknown":12,"French":9,"Other":5,"Finnish":4,"Greek":4,"Baltic states":3,"Belgian":2,"Polish":2,"Portuguese":1,"Spanish":1,"Italian":1},"top":"German","top_share":0.3141,"second":"British","second_share":0.2322,"british_share":0.2322,"effective_flags":4.5,"top_places":[["Arkhangelsk",86],["Trondheim",45],["Vardø (town)",26],["Kirkenes",23],["Ålesund",22]],"lat":65.47,"lon":14.77},{"sea":"Mediterranean","n":8018,"shares":{"British":0.3915,"German":0.0832,"French":0.1009,"Norwegian":0.014,"Dutch":0.0122,"Italian":0.1899,"Swedish":0.0054,"Russian":0.0101,"Other":0.1765,"Unknown":0.0163},"groups":{"British":3139,"Italian":1523,"French":809,"German":667,"Greek":461,"Spanish":229,"American":220,"Other":153,"Unknown":131,"Austrian":121,"Norwegian":112,"Dutch":98,"Russian":81,"Ottoman":77,"Belgian":46,"Danish":45,"Swedish":43,"Portuguese":31,"Yugoslav":19,"Irish":8,"Romanian":4,"Polish":1},"top":"British","top_share":0.3915,"second":"Italian","second_share":0.1899,"british_share":0.3915,"effective_flags":4.55,"top_places":[["Gibraltar",454],["Dardanelles",361],["Alexandria",170],["Livorno",128],["Marseille",107]],"lat":38.02,"lon":12.05},{"sea":"Black Sea","n":1431,"shares":{"British":0.3578,"German":0.0985,"French":0.0259,"Norwegian":0.007,"Dutch":0.0063,"Italian":0.0342,"Swedish":0.0028,"Russian":0.2586,"Other":0.1824,"Unknown":0.0266},"groups":{"British":512,"Russian":370,"German":141,"Ottoman":77,"Greek":65,"Italian":49,"Romanian":44,"Unknown":38,"French":37,"Austrian":36,"Other":16,"Belgian":11,"Norwegian":10,"Dutch":9,"American":6,"Yugoslav":5,"Swedish":4,"Spanish":1},"top":"British","top_share":0.3578,"second":"Russian","second_share":0.2586,"british_share":0.3578,"effective_flags":4.44,"top_places":[["Danube",197],["Bosporus",103],["Kerch",92],["Sulina",84],["Odesa",83]],"lat":45.16,"lon":29.76}],"series5":{"start":[1745,1750,1755,1760,1765,1770,1775,1780,1785,1790,1795,1800,1805,1810,1815,1820,1825,1830,1835,1840,1845,1850,1855,1860,1865,1870,1875,1880,1885,1890,1895,1900,1905,1910,1915,1920,1925,1930,1935,1940,1945],"keys":["British","German","French","Norwegian","Dutch","Italian","Swedish","Russian","Other","Unknown"],"counts":{"British":[118,151,176,356,311,358,247,399,543,643,632,1405,1666,1855,2156,2481,1927,1939,3655,4313,4671,4429,4281,4612,5141,5127,4979,3543,2615,990,78,86,61,171,2770,420,370,286,426,2108,119],"German":[4,8,2,7,9,16,8,27,31,42,56,120,50,58,144,132,117,105,217,291,379,371,264,309,234,388,442,240,164,91,4,5,4,25,281,48,85,60,90,2116,570],"French":[9,11,15,12,14,23,17,26,41,52,18,52,36,43,138,162,70,106,226,278,309,354,336,314,295,411,403,253,135,66,3,12,11,13,610,101,70,41,65,189,5],"Norwegian":[0,0,0,0,0,0,0,0,0,0,0,0,0,6,39,37,15,30,51,80,76,98,96,141,104,259,381,299,224,86,4,6,5,23,595,46,49,39,57,336,36],"Dutch":[9,12,2,18,21,17,10,46,30,34,15,53,15,26,174,143,87,58,119,131,113,151,144,139,97,158,184,101,46,27,1,4,1,5,102,13,21,23,29,143,8],"Italian":[1,0,2,2,2,2,2,8,5,0,2,0,2,1,9,5,7,8,18,21,30,39,23,61,68,173,171,77,49,16,2,1,2,6,417,40,55,38,30,707,4],"Swedish":[0,5,4,15,13,14,5,20,16,31,19,29,47,51,73,74,35,37,37,81,77,109,89,91,65,122,183,106,53,39,0,2,1,11,137,36,41,36,43,147,5],"Russian":[1,0,5,8,9,11,13,17,20,9,24,22,36,48,47,39,31,36,42,64,80,104,58,74,46,108,131,61,55,23,5,2,9,10,166,12,7,5,6,378,10],"Other":[22,18,39,62,56,64,45,87,83,90,88,169,172,135,154,141,75,103,175,235,304,353,299,331,293,461,547,302,172,106,8,23,23,30,733,209,181,206,258,799,66],"Unknown":[1,0,1,0,0,2,4,3,15,13,26,46,45,55,46,12,18,18,34,36,63,66,63,97,120,167,183,187,141,46,4,2,2,4,2,10,2,1,5,5,0]}},"coasts":[{"coast":"United Kingdom","n":62048,"own_group":"British","own_share":0.8397,"own_share_1816_1913":0.8561,"british_share":0.8397,"top":"British","top_share":0.8397,"top_foreign":"French","top_foreign_share":0.0306,"shares":{"British":0.8397,"German":0.0255,"French":0.0306,"Norwegian":0.0217,"Dutch":0.0133,"Italian":0.0048,"Swedish":0.0105,"Russian":0.0044,"Other":0.0376,"Unknown":0.0118}},{"coast":"Ireland","n":7007,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.8108,"top":"British","top_share":0.8108,"top_foreign":"British","top_foreign_share":0.8108,"shares":{"British":0.8108,"German":0.0298,"French":0.0144,"Norwegian":0.0203,"Dutch":0.0059,"Italian":0.0104,"Swedish":0.0047,"Russian":0.0043,"Other":0.0891,"Unknown":0.0104}},{"coast":"France","n":6623,"own_group":"French","own_share":0.323,"own_share_1816_1913":0.3729,"british_share":0.3902,"top":"British","top_share":0.3902,"top_foreign":"British","top_foreign_share":0.3902,"shares":{"British":0.3902,"German":0.0892,"French":0.323,"Norwegian":0.0326,"Dutch":0.0211,"Italian":0.0198,"Swedish":0.0107,"Russian":0.0069,"Other":0.0938,"Unknown":0.0127}},{"coast":"Denmark","n":4101,"own_group":"Danish","own_share":0.1166,"own_share_1816_1913":0.1066,"british_share":0.4104,"top":"British","top_share":0.4104,"top_foreign":"British","top_foreign_share":0.4104,"shares":{"British":0.4104,"German":0.199,"French":0.0166,"Norwegian":0.0673,"Dutch":0.0427,"Italian":0.0017,"Swedish":0.0751,"Russian":0.031,"Other":0.1353,"Unknown":0.021}},{"coast":"Netherlands","n":3790,"own_group":"Dutch","own_share":0.214,"own_share_1816_1913":0.2177,"british_share":0.4,"top":"British","top_share":0.4,"top_foreign":"British","top_foreign_share":0.4,"shares":{"British":0.4,"German":0.1475,"French":0.0351,"Norwegian":0.0311,"Dutch":0.214,"Italian":0.0058,"Swedish":0.0248,"Russian":0.0124,"Other":0.1063,"Unknown":0.023}},{"coast":"Spain","n":3242,"own_group":"Spanish","own_share":0.1225,"own_share_1816_1913":0.1038,"british_share":0.4923,"top":"British","top_share":0.4923,"top_foreign":"British","top_foreign_share":0.4923,"shares":{"British":0.4923,"German":0.0358,"French":0.1046,"Norwegian":0.029,"Dutch":0.021,"Italian":0.0512,"Swedish":0.0102,"Russian":0.0074,"Other":0.2289,"Unknown":0.0197}},{"coast":"Germany","n":2832,"own_group":"German","own_share":0.4544,"own_share_1816_1913":0.386,"british_share":0.3422,"top":"German","top_share":0.4544,"top_foreign":"British","top_foreign_share":0.3422,"shares":{"British":0.3422,"German":0.4544,"French":0.0127,"Norwegian":0.0198,"Dutch":0.0434,"Italian":0.0039,"Swedish":0.0222,"Russian":0.0092,"Other":0.0653,"Unknown":0.0268}},{"coast":"Sweden","n":2410,"own_group":"Swedish","own_share":0.2112,"own_share_1816_1913":0.1926,"british_share":0.4062,"top":"British","top_share":0.4062,"top_foreign":"British","top_foreign_share":0.4062,"shares":{"British":0.4062,"German":0.132,"French":0.0149,"Norwegian":0.0602,"Dutch":0.0274,"Italian":0.0017,"Swedish":0.2112,"Russian":0.0473,"Other":0.0689,"Unknown":0.0303}},{"coast":"Italy","n":1839,"own_group":"Italian","own_share":0.3812,"own_share_1816_1913":0.2511,"british_share":0.3002,"top":"Italian","top_share":0.3812,"top_foreign":"British","top_foreign_share":0.3002,"shares":{"British":0.3002,"German":0.1229,"French":0.0451,"Norwegian":0.0103,"Dutch":0.0087,"Italian":0.3812,"Swedish":0.0038,"Russian":0.0033,"Other":0.1115,"Unknown":0.0131}},{"coast":"Norway","n":1750,"own_group":"Norwegian","own_share":0.3189,"own_share_1816_1913":0.3352,"british_share":0.1903,"top":"Norwegian","top_share":0.3189,"top_foreign":"German","top_foreign_share":0.3023,"shares":{"British":0.1903,"German":0.3023,"French":0.012,"Norwegian":0.3189,"Dutch":0.0274,"Italian":0.0006,"Swedish":0.0497,"Russian":0.028,"Other":0.0594,"Unknown":0.0114}},{"coast":"Portugal","n":1494,"own_group":"Portuguese","own_share":0.1305,"own_share_1816_1913":0.1288,"british_share":0.5375,"top":"British","top_share":0.5375,"top_foreign":"British","top_foreign_share":0.5375,"shares":{"British":0.5375,"German":0.0509,"French":0.0556,"Norwegian":0.0295,"Dutch":0.0194,"Italian":0.0241,"Swedish":0.012,"Russian":0.01,"Other":0.247,"Unknown":0.0141}},{"coast":"Russia","n":1290,"own_group":"Russian","own_share":0.3457,"own_share_1816_1913":0.2156,"british_share":0.3659,"top":"British","top_share":0.3659,"top_foreign":"British","top_foreign_share":0.3659,"shares":{"British":0.3659,"German":0.1364,"French":0.014,"Norwegian":0.0264,"Dutch":0.0186,"Italian":0.0078,"Swedish":0.0078,"Russian":0.3457,"Other":0.0566,"Unknown":0.0209}},{"coast":"Turkey","n":1070,"own_group":"Ottoman","own_share":0.0654,"own_share_1816_1913":0.0297,"british_share":0.5935,"top":"British","top_share":0.5935,"top_foreign":"British","top_foreign_share":0.5935,"shares":{"British":0.5935,"German":0.029,"French":0.0421,"Norwegian":0.0112,"Dutch":0.0121,"Italian":0.0439,"Swedish":0.0037,"Russian":0.0477,"Other":0.185,"Unknown":0.0318}},{"coast":"Greece","n":1022,"own_group":"Greek","own_share":0.275,"own_share_1816_1913":0.1182,"british_share":0.3307,"top":"British","top_share":0.3307,"top_foreign":"British","top_foreign_share":0.3307,"shares":{"British":0.3307,"German":0.1096,"French":0.0479,"Norwegian":0.0088,"Dutch":0.0068,"Italian":0.1252,"Swedish":0.0029,"Russian":0.0127,"Other":0.3434,"Unknown":0.0117}},{"coast":"Estonia","n":699,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.3891,"top":"British","top_share":0.3891,"top_foreign":"British","top_foreign_share":0.3891,"shares":{"British":0.3891,"German":0.1059,"French":0.0215,"Norwegian":0.03,"Dutch":0.0343,"Italian":0.0014,"Swedish":0.0258,"Russian":0.3033,"Other":0.0486,"Unknown":0.0401}},{"coast":"Poland","n":565,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.285,"top":"German","top_share":0.5451,"top_foreign":"German","top_foreign_share":0.5451,"shares":{"British":0.285,"German":0.5451,"French":0.0106,"Norwegian":0.0159,"Dutch":0.0212,"Italian":0.0035,"Swedish":0.0283,"Russian":0.0195,"Other":0.0496,"Unknown":0.0212}},{"coast":"Latvia","n":521,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.4664,"top":"British","top_share":0.4664,"top_foreign":"British","top_foreign_share":0.4664,"shares":{"British":0.4664,"German":0.2035,"French":0.0154,"Norwegian":0.0365,"Dutch":0.0307,"Italian":0.0,"Swedish":0.0173,"Russian":0.1228,"Other":0.0672,"Unknown":0.0403}},{"coast":"Belgium","n":490,"own_group":"Belgian","own_share":0.1245,"own_share_1816_1913":0.1697,"british_share":0.4755,"top":"British","top_share":0.4755,"top_foreign":"British","top_foreign_share":0.4755,"shares":{"British":0.4755,"German":0.1265,"French":0.051,"Norwegian":0.0143,"Dutch":0.0959,"Italian":0.0082,"Swedish":0.0102,"Russian":0.0061,"Other":0.2,"Unknown":0.0122}},{"coast":"Finland","n":433,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.418,"top":"British","top_share":0.418,"top_foreign":"British","top_foreign_share":0.418,"shares":{"British":0.418,"German":0.0693,"French":0.0023,"Norwegian":0.03,"Dutch":0.03,"Italian":0.0,"Swedish":0.067,"Russian":0.2448,"Other":0.1062,"Unknown":0.0323}},{"coast":"Tunisia","n":421,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.2803,"top":"Italian","top_share":0.3468,"top_foreign":"Italian","top_foreign_share":0.3468,"shares":{"British":0.2803,"German":0.1164,"French":0.1211,"Norwegian":0.0143,"Dutch":0.0071,"Italian":0.3468,"Swedish":0.0024,"Russian":0.0024,"Other":0.1069,"Unknown":0.0024}},{"coast":"Algeria","n":398,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.4548,"top":"British","top_share":0.4548,"top_foreign":"British","top_foreign_share":0.4548,"shares":{"British":0.4548,"German":0.0427,"French":0.2261,"Norwegian":0.0251,"Dutch":0.0201,"Italian":0.0905,"Swedish":0.0,"Russian":0.005,"Other":0.1281,"Unknown":0.0075}},{"coast":"Romania","n":362,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.4365,"top":"British","top_share":0.4365,"top_foreign":"British","top_foreign_share":0.4365,"shares":{"British":0.4365,"German":0.0967,"French":0.0249,"Norwegian":0.0083,"Dutch":0.0166,"Italian":0.0276,"Swedish":0.0028,"Russian":0.0884,"Other":0.2597,"Unknown":0.0387}},{"coast":"Libya","n":312,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.3654,"top":"Italian","top_share":0.4167,"top_foreign":"Italian","top_foreign_share":0.4167,"shares":{"British":0.3654,"German":0.1122,"French":0.0128,"Norwegian":0.0128,"Dutch":0.0,"Italian":0.4167,"Swedish":0.0,"Russian":0.0,"Other":0.0769,"Unknown":0.0032}},{"coast":"Lithuania","n":284,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.5669,"top":"British","top_share":0.5669,"top_foreign":"British","top_foreign_share":0.5669,"shares":{"British":0.5669,"German":0.2993,"French":0.0,"Norwegian":0.0141,"Dutch":0.0141,"Italian":0.0,"Swedish":0.0176,"Russian":0.0282,"Other":0.0423,"Unknown":0.0176}},{"coast":"Egypt","n":279,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.6272,"top":"British","top_share":0.6272,"top_foreign":"British","top_foreign_share":0.6272,"shares":{"British":0.6272,"German":0.0287,"French":0.0609,"Norwegian":0.0179,"Dutch":0.0108,"Italian":0.0681,"Swedish":0.0,"Russian":0.0072,"Other":0.1649,"Unknown":0.0143}},{"coast":"Ukraine","n":213,"own_group":null,"own_share":null,"own_share_1816_1913":null,"british_share":0.3662,"top":"British","top_share":0.3662,"top_foreign":"British","top_foreign_share":0.3662,"shares":{"British":0.3662,"German":0.1221,"French":0.0094,"Norwegian":0.0094,"Dutch":0.0047,"Italian":0.0282,"Swedish":0.0094,"Russian":0.338,"Other":0.0939,"Unknown":0.0188}}]};
+let P = null;
+fetch("data/page.json").then(r => r.json()).then(p => { P = p; init(); }).catch(() => { document.getElementById("map").innerHTML = '<p style="padding:16px;font:400 13px/1.5 var(--mono)">The wreck data did not load. If you opened this file locally, serve the folder over http.</p>'; });
+const NS = "http://www.w3.org/2000/svg";
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const el = (t, a = {}, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const fmt = n => Math.round(n).toLocaleString("en-GB");
+const pc = (x, d = 0) => (x * 100).toFixed(d) + "%";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+function hover(node, h) { node.style.cursor = "pointer"; node.setAttribute("tabindex", "0"); const s = () => { const r = node.getBoundingClientRect(); showTip(typeof h === "function" ? h() : h, r.left + r.width / 2, r.top); }; node.addEventListener("pointerenter", s); node.addEventListener("focus", s); node.addEventListener("pointerleave", hideTip); node.addEventListener("blur", hideTip); node.addEventListener("click", e => { e.stopPropagation(); s(); }); }
+document.addEventListener("click", hideTip);
+const redraws = [];
+function resp(box, render) { let last = 0; const go = (force) => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); redraws.push(() => go(true)); go(); }
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+function init() {
+const KEYS = R.show;                           // British ... Russian, Other, Unknown
+const col = k => css("--f-" + k);
+const sw = k => `<i style="background:var(--f-${k})"></i>`;
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+document.getElementById("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = isDark() ? "light" : "dark"; redraws.forEach(f => f()); window.__restyle && window.__restyle(); };
+const ERAS = [{ k: "all", label: "All years", from: 1744, to: 1945 }, ...R.eras_def.map(e => ({ k: e.era, label: e.era.replace(" to ", " to "), name: e.label, from: e.from, to: e.to }))];
+let era = ERAS[0], flagSel = "all";
+const listeners = [];
+
+/* donut path helper */
+function donut(g, cx, cy, r, ri, parts, total) {
+  let a = -Math.PI / 2; const gap = parts.filter(p => p[1] > 0).length > 1 ? 0.012 : 0;
+  parts.forEach(([k, v]) => { if (!v) return; const da = v / total * Math.PI * 2; const a0 = a + gap / 2, a1 = a + da - gap / 2; a += da; if (a1 <= a0) return;
+    const large = a1 - a0 > Math.PI ? 1 : 0, p = (rr, t) => [cx + rr * Math.cos(t), cy + rr * Math.sin(t)];
+    if (da >= Math.PI * 2 - 1e-6) { el("circle", { cx, cy, r: (r + ri) / 2, fill: "none", stroke: col(k), "stroke-width": r - ri }, g); return; }
+    const [x0, y0] = p(r, a0), [x1, y1] = p(r, a1), [x2, y2] = p(ri, a1), [x3, y3] = p(ri, a0);
+    el("path", { d: `M${x0} ${y0}A${r} ${r} 0 ${large} 1 ${x1} ${y1}L${x2} ${y2}A${ri} ${ri} 0 ${large} 0 ${x3} ${y3}Z`, fill: col(k) }, g); });
+}
+/* hero mark: a donut of all flags with a compass tick ring */
+const hero = () => { const g = document.getElementById("heroMark"); g.innerHTML = ""; const parts = KEYS.map(k => [k, R.overall.shares[k]]);
+  for (let i = 0; i < 32; i++) { const t = i / 32 * Math.PI * 2, r0 = i % 8 ? 90 : 84; el("line", { x1: 96 * Math.cos(t), y1: 96 * Math.sin(t), x2: r0 * Math.cos(t), y2: r0 * Math.sin(t), stroke: "var(--fg)", "stroke-width": i % 8 ? 1.2 : 2.4 }, g); }
+  donut(g, 0, 0, 78, 44, parts, 1);
+  el("path", { d: "M-22 8 L22 8 L16 18 L-16 18 Z", fill: "var(--fg)" }, g); el("line", { x1: 0, y1: 8, x2: 0, y2: -22, stroke: "var(--fg)", "stroke-width": 2.5 }, g);
+  el("path", { d: "M2 -20 L16 4 L2 4 Z", fill: "var(--fg)", opacity: .8 }, g); };
+hero(); redraws.push(hero);
+
+/* era buttons and flag select */
+(() => { const box = document.getElementById("eras");
+  ERAS.forEach((e, i) => { const b = document.createElement("button"); b.className = "btn"; b.textContent = e.label; b.setAttribute("aria-pressed", i === 0); b.title = e.name || "1744 to 1945";
+    b.onclick = () => { era = e; box.querySelectorAll(".btn").forEach(x => x.setAttribute("aria-pressed", x === b)); listeners.forEach(f => f()); }; box.appendChild(b); });
+  const s = document.getElementById("flagsel"); s.innerHTML = `<option value="all">All flags</option>` + P.groups.map((g, i) => `<option value="${i}">${g} (${fmt(R.overall.groups[g])})</option>`).join("");
+  s.onchange = () => { flagSel = s.value; listeners.forEach(f => f()); }; })();
+const gKey = P.groups.map(g => KEYS.includes(g) ? g : "Other");
+const N = P.y.length;
+function inScope(i) { return P.y[i] >= era.from && P.y[i] <= era.to; }
+
+/* ===== map ===== */
+(() => {
+  const legend = document.getElementById("legend"), card = document.getElementById("card"), note = document.getElementById("mapnote");
+  legend.innerHTML = KEYS.map(k => `<span>${sw(k)}${k === "Other" ? "Other flags" : k === "Unknown" ? "Flag unknown" : k}</span>`).join("");
+  if (!window.L) { document.getElementById("map").innerHTML = '<p style="padding:16px;font:400 13px/1.5 var(--mono)">The map library did not load. The charts below still work.</p>'; return; }
+  const map = L.map("map", { scrollWheelZoom: false, zoomSnap: 1, minZoom: 3, maxZoom: 10 }).fitBounds([[35, -12], [66, 32]]);
+  map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+  map.on("focus", () => map.scrollWheelZoom.enable()); map.on("blur", () => map.scrollWheelZoom.disable());
+  const tileUrl = () => `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/${isDark() ? "World_Dark_Gray_Base" : "World_Light_Gray_Base"}/MapServer/tile/{z}/{y}/{x}`;
+  const tiles = L.tileLayer(tileUrl(), { maxZoom: 16, attribution: "Tiles &copy; Esri, HERE, Garmin, &copy; OpenStreetMap contributors, and the GIS user community · Wrecks: Wikipedia lists of shipwrecks (CC BY-SA)" }).addTo(map);
+  const layer = L.layerGroup().addTo(map); let selKey = null;
+  const cellDeg = z => z <= 4 ? 3 : z === 5 ? 2 : z === 6 ? 1 : z === 7 ? 0.5 : z === 8 ? 0.25 : 0.1;
+  function cells() {
+    const d = cellDeg(map.getZoom()), C = new Map(), f = flagSel === "all" ? -1 : +flagSel;
+    for (let i = 0; i < N; i++) { if (!inScope(i)) continue; if (f >= 0 && P.g[i] !== f) continue;
+      const la = P.lat[i] / 100, lo = P.lon[i] / 100, key = Math.floor(la / d) + ":" + Math.floor(lo / d);
+      let c = C.get(key); if (!c) { c = { key, n: 0, sla: 0, slo: 0, by: {}, idx: [] }; C.set(key, c); }
+      c.n++; c.sla += la; c.slo += lo; const k = gKey[P.g[i]]; c.by[k] = (c.by[k] || 0) + 1; c.idx.push(i); }
+    return [...C.values()];
+  }
+  function draw() {
+    layer.clearLayers(); const cs = cells(), z = map.getZoom(), max = Math.max(1, ...cs.map(c => c.n));
+    const k = z <= 4 ? 34 : z <= 6 ? 30 : 24, f = flagSel === "all" ? null : P.groups[+flagSel];
+    cs.sort((a, b) => b.n - a.n).forEach(c => {
+      const r = Math.max(5, Math.sqrt(c.n / max) * k), s = Math.ceil(r * 2 + 4), svg = document.createElementNS(NS, "svg");
+      svg.setAttribute("width", s); svg.setAttribute("height", s); svg.setAttribute("viewBox", `${-s / 2} ${-s / 2} ${s} ${s}`);
+      el("circle", { class: "ring", cx: 0, cy: 0, r: r + 1, fill: css("--card"), opacity: .9 }, svg);
+      if (f) el("circle", { cx: 0, cy: 0, r, fill: col(KEYS.includes(f) ? f : "Other"), opacity: .85 }, svg);
+      else donut(svg, 0, 0, r, r * (r > 10 ? .5 : .35), KEYS.map(k => [k, c.by[k] || 0]), c.n);
+      if (r >= 15) lbl(svg, 0, 4, c.n >= 1000 ? (c.n / 1000).toFixed(1) + "k" : c.n, "", "middle");
+      const icon = L.divIcon({ html: svg.outerHTML, className: "donut" + (c.key === selKey ? " sel" : ""), iconSize: [s, s] });
+      const m = L.marker([c.sla / c.n, c.slo / c.n], { icon, keyboard: true, title: `${c.n} wrecks`, zIndexOffset: Math.round(1000 - r) });
+      m.on("click", () => { selKey = c.key; show(c); draw(); }); m.addTo(layer); });
+    note.textContent = `${fmt(cs.reduce((a, c) => a + c.n, 0))} wrecks in view for ${era.k === "all" ? "1744 to 1945" : era.k}${f ? ", " + f + " flag only" : ""}. Grid squares of ${cellDeg(z)}°; donut area follows the number of wrecks.`;
+    if (selKey) { const c = cs.find(x => x.key === selKey); c ? show(c) : clear(); }
+  }
+  function clear() { selKey = null; card.className = "card empty"; card.textContent = "Tap a donut to see which flags were lost in that square, and the ships themselves."; }
+  function show(c) {
+    card.className = "card"; const by = Object.entries(c.by).sort((a, b) => b[1] - a[1]); const places = {}; c.idx.forEach(i => { const p = P.places[P.p[i]]; if (p) places[p] = (places[p] || 0) + 1; });
+    const tp = Object.entries(places).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([p, n]) => `${esc(p.replace(/ \(.*\)$/, ""))} (${n})`).join(", ");
+    const seas = {}; c.idx.forEach(i => { const s = P.seas[P.s[i]]; seas[s] = (seas[s] || 0) + 1; }); const sea = Object.entries(seas).sort((a, b) => b[1] - a[1])[0][0];
+    const ord = [...c.idx].sort((a, b) => P.y[a] - P.y[b]); const step = Math.max(1, Math.floor(ord.length / 40)); const pick = ord.filter((_, j) => j % step === 0).slice(0, 40);
+    card.innerHTML = `<b class="t">${fmt(c.n)} wrecks</b><div style="color:var(--muted)">${esc(sea)} · ${era.k === "all" ? "1744 to 1945" : era.k}</div>` +
+      `<div class="bars">${by.map(([k, v]) => `<span>${k === "Other" ? "Other" : k}</span><span class="bar" style="width:${Math.max(2, v / by[0][1] * 100)}%;background:var(--f-${k})"></span><span>${pc(v / c.n)}</span>`).join("")}</div>` +
+      (tp ? `<div><span style="color:var(--muted)">Most named:</span> ${tp}</div>` : "") +
+      `<div style="color:var(--muted);margin-top:8px">${pick.length < c.n ? "A sample of the ships, by year:" : "The ships, by year:"}</div><ul>${pick.map(i => `<li>${sw(gKey[P.g[i]])}<b>${esc(P.ship[i] || "Unnamed")}</b> ${P.y[i]} · ${esc(P.groups[P.g[i]])}${P.n[i] ? " (naval)" : ""}<br><span style="color:var(--muted)">${esc((P.places[P.p[i]] || "list coordinates").replace(/ \(.*\)$/, ""))} · <a href="https://en.wikipedia.org/wiki/List_of_shipwrecks_in_${encodeURIComponent(P.pages[P.pg[i]].replace(/ /g, "_"))}" target="_blank" rel="noopener">list</a></span></li>`).join("")}</ul>`;
+  }
+  map.on("zoomend", draw); map.on("click", () => { clear(); draw(); });
+  listeners.push(draw);
+  window.__restyle = () => { tiles.setUrl(tileUrl()); draw(); };
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", window.__restyle);
+  window.__map = map; draw();
+})();
+
+/* ===== sea small multiples and table ===== */
+(() => { const box = document.getElementById("multi");
+  function render() {
+    box.innerHTML = ""; document.getElementById("seaEra").textContent = era.k === "all" ? "all years" : era.k + " (" + era.name + ")";
+    const f = flagSel === "all" ? -1 : +flagSel;
+    R.seas.forEach((s, si) => { const by = {}; let n = 0;
+      for (let i = 0; i < N; i++) { if (P.s[i] !== si || !inScope(i)) continue; n++; const k = gKey[P.g[i]]; by[k] = (by[k] || 0) + 1; }
+      const d = document.createElement("div"); d.className = "m"; const svg = el("svg", { viewBox: "-60 -60 120 120", role: "img", "aria-label": `Flags of wrecks in the ${s.sea}` }, d);
+      if (n) donut(svg, 0, 0, 56, 30, KEYS.map(k => [k, by[k] || 0]), n); else el("circle", { cx: 0, cy: 0, r: 43, fill: "none", stroke: "var(--rule)", "stroke-width": 26 }, svg);
+      const top = Object.entries(by).sort((a, b) => b[1] - a[1]);
+      lbl(svg, 0, 5, n ? fmt(n) : "0", "lab b", "middle");
+      if (f >= 0) { const g = gKey[f]; const t = el("text", { x: 0, y: 19, class: "lab s m", "text-anchor": "middle" }, svg); t.textContent = n ? pc((by[g] || 0) / n) + " " + g : ""; }
+      d.insertAdjacentHTML("beforeend", `<b>${s.sea.replace(" and approaches", "")}</b><span>${top.length ? top[0][0] + " " + pc(top[0][1] / n) : "no wrecks"}</span>`);
+      hover(d, () => `<b>${s.sea}</b>, ${era.k === "all" ? "1744 to 1945" : era.k}<br>${fmt(n)} wrecks<br>` + top.slice(0, 6).map(([k, v]) => `${sw(k)}${k} ${pc(v / n, 1)}`).join("<br>"));
+      box.appendChild(d); });
+  }
+  listeners.push(render); redraws.push(render); render();
+  const t = document.getElementById("seat");
+  t.innerHTML = `<thead><tr><th>Sea</th><th class="num">Wrecks</th><th>Top flag</th><th>Next</th><th class="num">Effective flags</th><th>Top place</th></tr></thead><tbody>` +
+    R.seas.map(s => `<tr><td>${s.sea}</td><td class="num">${fmt(s.n)}</td><td>${sw(KEYS.includes(s.top) ? s.top : "Other")}${s.top} ${pc(s.top_share)}</td><td>${sw(KEYS.includes(s.second) ? s.second : "Other")}${s.second} ${pc(s.second_share)}</td><td class="num">${s.effective_flags.toFixed(2)}</td><td>${esc(s.top_places[0][0].replace(/ \(.*\)$/, ""))}</td></tr>`).join("") + "</tbody>";
+})();
+
+/* ===== stacked area over time ===== */
+(() => { let mode = "share"; const box = document.getElementById("area"); const S = R.series5;
+  document.querySelectorAll("[data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; document.querySelectorAll("[data-mode]").forEach(x => x.setAttribute("aria-pressed", x === b)); box.innerHTML = ""; render(box.clientWidth, box.clientWidth < 560); });
+  resp(box, (W, nar) => render(W, nar));
+  function render(W, nar) {
+    const H = nar ? 280 : 340, m = { l: nar ? 40 : 48, r: nar ? 8 : 92, t: 10, b: 30 }, svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Stacked area chart of flags of wrecks over time" }, box);
+    const xs = S.start, n = xs.length, tot = xs.map((_, i) => KEYS.reduce((a, k) => a + S.counts[k][i], 0));
+    const max = mode === "share" ? 1 : Math.ceil(Math.max(...tot) / 1000) * 1000;
+    const X = i => m.l + (xs[i] + 2.5 - 1745) / (1945 - 1745) * (W - m.l - m.r), Y = v => H - m.b - v / max * (H - m.t - m.b);
+    const ticks = mode === "share" ? [0, .25, .5, .75, 1] : [0, max / 4, max / 2, max * 3 / 4, max];
+    ticks.forEach(t => { el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: "var(--rule)" }, svg); lbl(svg, m.l - 6, Y(t) + 4, mode === "share" ? pc(t) : fmt(t), "lab m s", "end"); });
+    [1750, 1800, 1850, 1900, 1945].forEach(y => lbl(svg, m.l + (y - 1745) / 200 * (W - m.l - m.r), H - m.b + 16, y, "lab m s", "middle"));
+    let base = xs.map(() => 0);
+    KEYS.forEach(k => { const v = xs.map((_, i) => mode === "share" ? S.counts[k][i] / (tot[i] || 1) : S.counts[k][i]);
+      const top = base.map((b, i) => b + v[i]);
+      const d = "M" + xs.map((_, i) => `${X(i)} ${Y(top[i])}`).join("L") + "L" + xs.map((_, i) => `${X(n - 1 - i)} ${Y(base[n - 1 - i])}`).join("L") + "Z";
+      el("path", { d, fill: col(k), stroke: css("--bg"), "stroke-width": 1, "stroke-linejoin": "round" }, svg);
+      if (!nar) { const i = n - 1, mid = (top[i] + base[i]) / 2; if (top[i] - base[i] > (mode === "share" ? .045 : max * .04)) lbl(svg, W - m.r + 6, Y(mid) + 4, k, "lab s"); }
+      base = top; });
+    // war bands
+    [[1914, 1918], [1939, 1945]].forEach(([a, b]) => { const x0 = m.l + (a - 1745) / 200 * (W - m.l - m.r), x1 = m.l + (b + 1 - 1745) / 200 * (W - m.l - m.r); el("line", { x1: x0, x2: x1, y1: m.t - 4, y2: m.t - 4, stroke: "var(--fg)", "stroke-width": 3 }, svg); });
+    const cross = el("line", { y1: m.t, y2: H - m.b, stroke: "var(--fg)", "stroke-width": 1, opacity: 0 }, svg);
+    const hit = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+    const at = ev => { const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) / r.width * W; let i = Math.round((px - m.l) / (W - m.l - m.r) * 200 / 5 - .5 + (1745 - xs[0]) / 5); i = Math.max(0, Math.min(n - 1, i));
+      cross.setAttribute("x1", X(i)); cross.setAttribute("x2", X(i)); cross.setAttribute("opacity", .6);
+      const rows = KEYS.map(k => [k, S.counts[k][i]]).filter(r => r[1] > 0).sort((a, b) => b[1] - a[1]);
+      showTip(`<b>${xs[i]} to ${xs[i] + 4}</b> · ${fmt(tot[i])} wrecks<br>` + rows.slice(0, 7).map(([k, v]) => `${sw(k)}${k} ${mode === "share" ? pc(v / tot[i], 1) : fmt(v)}`).join("<br>"), r.left + X(i) / W * r.width, r.top + m.t / H * r.height); };
+    hit.addEventListener("pointermove", at); hit.addEventListener("click", e => { e.stopPropagation(); at(e); }); hit.addEventListener("pointerleave", () => { hideTip(); cross.setAttribute("opacity", 0); });
+    if (nar) { const lg = document.createElement("div"); lg.className = "legend"; lg.innerHTML = KEYS.map(k => `<span>${sw(k)}${k}</span>`).join(""); box.appendChild(lg); }
+  }
+})();
+
+/* ===== era bars ===== */
+resp(document.getElementById("erabars"), (W, nar) => {
+  const rows = R.eras, rowH = 34, m = { l: nar ? 92 : 150, r: nar ? 52 : 64, t: 4, b: 8 }, H = rows.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Share of each flag by era" }, document.getElementById("erabars"));
+  const X = v => m.l + v * (W - m.l - m.r);
+  rows.forEach((r, i) => { const y = m.t + i * rowH; lbl(svg, m.l - 8, y + 14, r.era, "lab s", "end"); if (!nar) lbl(svg, m.l - 8, y + 27, r.label, "lab m s", "end");
+    let a = 0; KEYS.forEach(k => { const v = r.shares[k]; if (!v) return; const rect = el("rect", { x: X(a) + 1, y: y + 5, width: Math.max(0, X(a + v) - X(a) - 2), height: rowH - 12, fill: col(k) }, svg);
+      hover(rect, `<b>${r.era}</b> · ${r.label}<br>${sw(k)}${k}: ${pc(v, 1)} of ${fmt(r.n)} wrecks`); a += v; });
+    lbl(svg, W - m.r + 6, y + 20, fmt(r.n), "lab s m"); });
+});
+
+/* ===== coasts ===== */
+resp(document.getElementById("coasts"), (W, nar) => {
+  const rows = R.coasts.filter(c => c.n >= 400), rowH = 28, m = { l: nar ? 98 : 120, r: 46, t: 4, b: 6 }, H = rows.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Share of each flag among wrecks off each coast" }, document.getElementById("coasts"));
+  const X = v => m.l + v * (W - m.l - m.r);
+  rows.forEach((r, i) => { const y = m.t + i * rowH; lbl(svg, m.l - 8, y + 18, r.coast, "lab s", "end");
+    let a = 0; KEYS.forEach(k => { const v = r.shares[k]; if (!v) return; const rect = el("rect", { x: X(a) + 1, y: y + 5, width: Math.max(0, X(a + v) - X(a) - 2), height: rowH - 10, fill: col(k) }, svg);
+      hover(rect, `<b>Off ${r.coast}</b>, ${fmt(r.n)} wrecks<br>${sw(k)}${k}: ${pc(v, 1)}` + (r.own_group ? `<br>Own flag (${r.own_group}): ${pc(r.own_share, 1)}` : "")); a += v; });
+    lbl(svg, W - m.r + 6, y + 18, r.own_share != null ? pc(r.own_share) : "", "lab s b"); });
+});
+}
+</script>
+</body>
+</html>
